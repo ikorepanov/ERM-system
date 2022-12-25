@@ -11,6 +11,8 @@
     <div>
       {% include 'includes/respond.html' %}
     </div>
-    <a href="{% url 'responds:respond_info' respond.pk %}">Подробнее...</a>
+    <p>
+      <a href="{% url 'responds:respond_info' respond.pk %}">Подробнее...</a>
+    </p>
   {% endfor %}
 {% endblock %}

@@ -1,13 +1,15 @@
-<div>
+{% comment %} <nav class="navbar navbar-light" style="background-color: lightskyblue"> {% endcomment %}
   <div>
-    <a href="{% url 'responds:index' %}">Путешествие в...</a>
-  </div>
-  <ul>
-    <li>
-      <a href="{% url 'responds:about' %}">About</a>
-    </li>
-    <li>
-      <a href="{% url 'responds:contact' %}">Contact</a>
-    </li>
-  </ul>
-<div>
+    <div>
+      <a href="{% url 'responds:index' %}">Путешествие в...</a>
+    </div>
+    <ul>
+      <li>
+        <a href="{% url 'responds:about' %}">About</a>
+      </li>
+      <li>
+        <a href="{% url 'responds:contact' %}">Contact</a>
+      </li>
+    </ul>
+  <div>
+</nav>

@@ -1,11 +1,17 @@
+{% load static%}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="{% static 'img/fav/favicon.ico' %}" type="image">
   <title>
     {% block title %}
     {% endblock %} 
   </title>
+  <!-- Подключен файл со стандартными стилями бустрап -->
+  {% comment %} <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> {% endcomment %}
 </head>
 <body>
   <header>
