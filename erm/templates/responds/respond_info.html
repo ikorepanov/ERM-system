@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {% comment %} Title from respond_info {% endcomment %}
+  {{ title }}
+{% endblock %}
+
+{% block content%}
+  Content from respond_info about respond {{ respond.pk }}
+  <div>
+    {% include 'includes/respond.html' %}
+  </div>
+{% endblock %}

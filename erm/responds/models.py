@@ -55,3 +55,4 @@ class Respond(models.Model):
         on_delete=models.SET_NULL,
         related_name='responds',
     )
+    letter = models.TextField(max_length=500, default='SOME STRING')

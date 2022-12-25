@@ -5,12 +5,15 @@ from .models import Respond, Company, Position, CV, Template
 
 class RespondAdmin(admin.ModelAdmin):
     list_display = (
+        'pk',
         'resp_date',
         'company',
         'position',
         'cv',
         'template',
+        'letter',
     )
+#    empty_value_display = '-пусто-'
 
 
 class CompanyAdmin(admin.ModelAdmin):
