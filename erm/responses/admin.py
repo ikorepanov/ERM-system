@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from .models import Company, Position, CV, Template, Respond
+from .models import Company, Position, CV, Template, Response
 
 
-class RespondAdmin(admin.ModelAdmin):
+class ResponseAdmin(admin.ModelAdmin):
     list_display = (
         "pk",
         "resp_date",
@@ -52,4 +52,4 @@ admin.site.register(Company, CompanyAdmin)
 admin.site.register(Position, PositionAdmin)
 admin.site.register(CV, CVAdmin)
 admin.site.register(Template, TemplateAdmin)
-admin.site.register(Respond, RespondAdmin)  # Если убрать RespondAdmin - в админке отклики будут отображаться списком объектов: одной колонкой, с именем, которое вызывает у объектов метод __str__;
+admin.site.register(Response, ResponseAdmin)  # Если убрать ResponseAdmin - в админке отклики будут отображаться списком объектов: одной колонкой, с именем, которое вызывает у объектов метод __str__;

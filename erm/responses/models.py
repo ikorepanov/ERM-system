@@ -40,7 +40,7 @@ class Template(models.Model):
         return f"{self.name}"
 
 
-class Respond(models.Model):
+class Response(models.Model):
     resp_date = models.DateField("Дата отклика / отправки резюме")
     company = models.ForeignKey(
         Company,

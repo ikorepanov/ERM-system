@@ -6,10 +6,10 @@
 
 {% block content%}
   <table>
-    {% include 'includes/respond_header.html' %}
-    {% for respond in responds %}
+    {% include 'includes/response_header.html' %}
+    {% for response in responses %}
       <tr>
-        {% include 'includes/respond.html' %}
+        {% include 'includes/response.html' %}
       </tr>
     {% endfor %}
   </table>
