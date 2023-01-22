@@ -1,13 +1,33 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  {% comment %} Title from respond_info {% endcomment %}
-  {{ title }}
+  Response {{ respond.pk }}
 {% endblock %}
 
 {% block content%}
+  <p>
   Content from respond_info about respond {{ respond.pk }}
+  </p>
   <div>
-    {% include 'includes/respond.html' %}
+    <ul class="hr">
+      <li>
+        Дата отклика: {{ respond.resp_date|date:"d M Y" }}
+      </li>
+      <li>
+        Компания: {{ respond.company }}
+      </li>
+      <li>
+        Позиция: {{ respond.position }}
+      </li>
+      <li>
+        Версия резюме: {{ respond.cv }}
+      </li>
+      <li>
+        Использовавшийся шаблон: {{ respond.template }}
+      </li>
+      <li>
+        Сопроводительное письмо: {{ respond.letter }}
+      </li>
+    </ul>
   </div>
 {% endblock %}

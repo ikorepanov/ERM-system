@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  {% comment %} Title from index {% endcomment %}
-  {{ title }}
+  Your responses
 {% endblock %}
 
 {% block content%}
-  {% comment %} Content from index {% endcomment %}
-  {% for respond in responds %}
-    <div>
-      {% include 'includes/respond.html' %}
-    </div>
-    <p>
-      <a href="{% url 'responds:respond_info' respond.pk %}">Подробнее...</a>
-    </p>
-  {% endfor %}
+  <table>
+    {% include 'includes/respond_header.html' %}
+    {% for respond in responds %}
+      <tr>
+        {% include 'includes/respond.html' %}
+      </tr>
+    {% endfor %}
+  </table>
 {% endblock %}

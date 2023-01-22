@@ -1,20 +1,12 @@
-<ul>
-  <li>
-    Дата отклика: {{ respond.resp_date|date:"d M Y" }}
-  </li>
-  <li>
-    Компания: {{ respond.company }}
-  </li>
-  <li>
-    Позиция: {{ respond.position }}
-  </li>
-  <li>
-    Версия резюме: {{ respond.cv }}
-  </li>
-  <li>
-    Использовавшийся шаблон: {{ respond.template }}
-  </li>
-  <li>
-    Сопроводительное письмо: {{ respond.letter }}
-  </li>
-</ul>
+<tr>
+  <td>
+    <a href="{% url 'responds:respond_info' respond.pk %}">
+      {{ respond.resp_date|date:"d M Y" }}
+    </a>
+  </td>
+  <td>{{ respond.company }}</td>
+  <td>{{ respond.position }}</td>
+  <td>{{ respond.cv }}</td>
+  <td>{{ respond.template }}</td>
+  <td>{{ respond.letter }}</td>
+</tr>

@@ -8,9 +8,7 @@ from .models import Respond
 def index(request):
     responds = Respond.objects.all()[:NUMBER_OF_RESULT_ENTRIES]
     template = 'responds/index.html'
-    title = "Your responds for this moment"
     context = {
-        'title': title,
         'responds': responds
     }
     return render(request, template, context)
@@ -29,11 +27,7 @@ def contact(request):
 def respond_info(request, pk):
     respond = get_object_or_404(Respond, pk=pk)
     template = 'responds/respond_info.html'
-    title = f'Подробная инфа об отклике {pk}'
     context = {
-        'title': title,
         'respond': respond,
-
-
     }
     return render(request, template, context)
