@@ -1,4 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import models
+
+User = get_user_model()
 
 
 class Company(models.Model):
@@ -46,30 +49,33 @@ class Response(models.Model):
         Company,
         null=True,
         on_delete=models.SET_NULL,
-        related_name="responds",
+        related_name="responses",
         verbose_name="Компания",
     )
     position = models.ForeignKey(
         Position,
         null=True,
         on_delete=models.SET_NULL,
-        related_name="responds",
+        related_name="responses",
         verbose_name="Позиция",
     )
     cv = models.ForeignKey(
         CV,
         null=True,
         on_delete=models.SET_NULL,
-        related_name="responds",
+        related_name="responses",
         verbose_name="Версия резюме",
     )
     template = models.ForeignKey(
         Template,
         null=True,
         on_delete=models.SET_NULL,
-        related_name="responds",
+        related_name="responses",
         verbose_name="Шаблон резюме",
     )
     letter = models.TextField(
         "Текст сопроводительного письма", max_length=500, default="SOME STRING"
     )
+
+    def __str__(self):
+        return f"{self.position}"
