@@ -5,12 +5,14 @@
 {% endblock %}
 
 {% block content%}
-  <table>
-    {% include 'includes/response_header.html' %}
-    {% for response in responses %}
-      <tr>
-        {% include 'includes/response.html' %}
-      </tr>
-    {% endfor %}
-  </table>
+  <div class="container">
+    <table>
+      {% include 'includes/response_header.html' %}
+      {% for response in responses %}
+        <tr>
+          {% include 'includes/response.html' %}
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
 {% endblock %}
