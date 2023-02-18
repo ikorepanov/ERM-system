@@ -1,15 +1,17 @@
-{% comment %} <nav class="navbar navbar-light" style="background-color: lightskyblue"> {% endcomment %}
-  <div>
+<header>
+  <nav class="navbar navbar-light" style="background-color: navy">
+    <div class="container">
+      <div>
+        <a href="{% url 'responses:index' %}">The journey of a thousand miles begins with a single... response</a>
+      </div>
+      <ul>
+        <li>
+          <a href="{% url 'responses:about' %}">About</a>
+        </li>
+        <li>
+          <a href="{% url 'responses:contact' %}">Contact</a>
+        </li>
+      </ul>
     <div>
-      <a href="{% url 'responses:index' %}">The journey of a thousand miles begins with a single... response</a>
-    </div>
-    <ul>
-      <li>
-        <a href="{% url 'responses:about' %}">About</a>
-      </li>
-      <li>
-        <a href="{% url 'responses:contact' %}">Contact</a>
-      </li>
-    </ul>
-  <div>
-</nav>
+  </nav>
+<header>

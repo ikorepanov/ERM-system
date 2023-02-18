@@ -5,14 +5,34 @@
 {% endblock %}
 
 {% block content%}
-  <div class="container">
-    <table>
-      {% include 'includes/response_header.html' %}
-      {% for response in responses %}
+  <main>
+    <div class="container">
+      <table>
         <tr>
-          {% include 'includes/response.html' %}
+          <th>Дата отклика</th>
+          <th>Компания</th>
+          <th>Позиция</th>
+          <th>Версия резюме</th>
+          <th>Использовавшийся шаблон</th>
+          <th>Сопроводительное письмо</th>
         </tr>
-      {% endfor %}
-    </table>
-  </div>
+        {% for response in responses %}
+          <tr>
+            <tr>
+              <td>
+                <a href="{% url 'responses:response_info' response.pk %}">
+                  {{ response.resp_date|date:"d M Y" }}
+                </a>
+              </td>
+              <td>{{ response.company }}</td>
+              <td>{{ response.position }}</td>
+              <td>{{ response.cv }}</td>
+              <td>{{ response.template }}</td>
+              <td>{{ response.letter }}</td>
+            </tr>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </main>
 {% endblock %}

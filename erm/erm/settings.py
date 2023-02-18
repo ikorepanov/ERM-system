@@ -130,3 +130,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 NUMBER_OF_RESULT_ENTRIES = 5
+
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'responses:index'
+# LOGOUT_REDIRECT_URL = 'responses:index'  # По умолчанию: '/auth/logout/'
+
+# Выводит текст письма в консоль:
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# подключаем движок filebased.EmailBackend
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# указываем директорию, в которую будут складываться файлы писем
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
