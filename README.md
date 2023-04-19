@@ -1,5 +1,39 @@
 # ERM-system
 ## _Employer_ Relationship Management system for job seekers who intend to land their dream job
+### Plan
+
+1. List of the features:
+    1. Basic form that allows users to enter the details of each job application:
+        - date of application, 
+        - company, 
+        - position, 
+        - status (whether there was a response, interview, etc.);
+    2. Search function that allows users to search through their previous job applications by keyword or date range;
+    3. Dashboard that displays statistics about the user's job search efforts, such as:
+        - number of applications submitted, 
+        - the percentage of responses received, 
+        - and the average time to receive a response;
+    4. Notification system that reminds users to follow up on their applications if they have not received a response within a certain time frame;
+    5. Export system: allow users to export their job search data to a spreadsheet or PDF for easy sharing and record-keeping.
+
+
+~~2. Create a Django project and set up the virtual environment to isolate the dependencies.~~
+
+3. Create the database schema for the app using Django's ORM. Define necessary models.
+
+4. Implement the authentication system.
+
+5. Implement the core functionality.
+ 
+6. Develop the frontend of the site using HTML, CSS, and JavaScript. Use a frontend framework such as React or Vue.
+
+7. Implement any additional features: user profiles, search and filtering, ratings and reviews.
+
+8. Add list of used tekhnologies.
+
+9. Add documentation.
+
+10. Test the app thoroughly and deploy it to a web server or cloud service provider.
 
 ### RU:
 *Концепция проекта*

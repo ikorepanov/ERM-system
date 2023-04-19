@@ -4,35 +4,584 @@
   Your responses
 {% endblock %}
 
-{% block content%}
+{% comment %} {% block content%}
   <main>
-    <div class="container">
-      <table>
-        <tr>
-          <th>Дата отклика</th>
-          <th>Компания</th>
-          <th>Позиция</th>
-          <th>Версия резюме</th>
-          <th>Использовавшийся шаблон</th>
-          <th>Сопроводительное письмо</th>
-        </tr>
-        {% for response in responses %}
-          <tr>
-            <tr>
-              <td>
-                <a href="{% url 'responses:response_info' response.pk %}">
-                  {{ response.resp_date|date:"d M Y" }}
-                </a>
-              </td>
-              <td>{{ response.company }}</td>
-              <td>{{ response.position }}</td>
-              <td>{{ response.cv }}</td>
-              <td>{{ response.template }}</td>
-              <td>{{ response.letter }}</td>
-            </tr>
-          </tr>
-        {% endfor %}
-      </table>
+    <div class="container py-5"> 
+      <div class="row justify-content-center">
+        <div class="col-md-8 p-5">
+          <div class="card">
+            {% comment %} <div class="container"> 
+              <table>
+                <tr>
+                  <th>Дата отклика</th>
+                  <th>Компания</th>
+                  <th>Позиция</th>
+                  <th>Версия резюме</th>
+                  <th>Использовавшийся шаблон</th>
+                  <th>Сопроводительное письмо</th>
+                </tr>
+                {% for response in responses %}
+                  <tr>
+                    <tr>
+                      <td>
+                        <a href="{% url 'responses:response_info' response.pk %}">
+                          {{ response.resp_date|date:"d M Y" }}
+                        </a>
+                      </td>
+                      <td>{{ response.company }}</td>
+                      <td>{{ response.position }}</td>
+                      <td>{{ response.cv }}</td>
+                      <td>{{ response.template }}</td>
+                      <td>{{ response.letter }}</td>
+                    </tr>
+                  </tr>
+                {% endfor %}
+              </table>
+            {% comment %} </div>
+            {% include 'responses/includes/paginator.html' %}
+          </div>
+        </div>
+      </div>
     </div>
   </main>
+{% endblock %} {% endcomment %}
+
+
+{% block content%}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-US"  class="supernova"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F230415467865159" title="oEmbed Form">
+<link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F230415467865159" title="oEmbed Form">
+<meta property="og:title" content="Coffee with Lex Fridman" >
+<meta property="og:url" content="https://form.jotform.com/230415467865159" >
+<meta property="og:description" content="Please click the link to complete this form." >
+<meta name="slack-app-id" content="AHNMASS8M">
+<meta property="og:image" content="https://cdn.jotfor.ms/assets/img/landing/opengraph.png" />
+<meta property="og:image" content="https://cdn.jotfor.ms/assets/img/favicons/favicon-2021-light%402x.png" />
+<link rel="shortcut icon" href="https://cdn.jotfor.ms/assets/img/favicons/favicon-2021-light%402x.png">
+<script>
+          var favicon = document.querySelector('link[rel="shortcut icon"]');
+          window.isDarkMode = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if(favicon && window.isDarkMode) {
+              favicon.href = favicon.href.replaceAll('favicon-2021-light%402x.png', 'favicon-2021-dark%402x.png');
+          }
+      </script><link rel="canonical" href="https://form.jotform.com/230415467865159" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1" />
+<meta name="HandheldFriendly" content="true" />
+<title>Coffee with Lex Fridman</title>
+<style type="text/css">@media print{.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+<link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?v=3.3.39584&themeRevisionID=5f7ed99c2c2c7240ba580251"/>
+<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/payment/payment_styles.css?3.3.39584" />
+<link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/payment/payment_feature.css?3.3.39584" />
+<script src="https://cdn01.jotfor.ms/static/prototype.forms.js?3.3.39584" type="text/javascript"></script>
+<script src="https://cdn02.jotfor.ms/static/jotform.forms.js?3.3.39584" type="text/javascript"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/punycode/1.4.1/punycode.js"></script>
+<script src="https://cdn03.jotfor.ms/js/vendor/imageinfo.js?v=3.3.39584" type="text/javascript"></script>
+<script src="https://cdn01.jotfor.ms/file-uploader/fileuploader.js?v=3.3.39584"></script>
+<script src="https://js.jotform.com/vendor/postMessage.js?3.3.39584" type="text/javascript"></script>
+<script src="https://js.jotform.com/WidgetsServer.js?v=1677093555997" type="text/javascript"></script>
+<script type="text/javascript">	JotForm.newDefaultTheme = true;
+	JotForm.extendsNewTheme = false;
+	JotForm.singleProduct = false;
+	JotForm.newPaymentUIForNewCreatedForms = true;
+	JotForm.newPaymentUI = true;
+	JotForm.clearFieldOnHide="disable";
+	JotForm.submitError="jumpToFirstError";
+
+	JotForm.init(function(){
+	/*INIT-START*/
+if (window.JotForm && JotForm.accessible) $('input_7').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_12').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_13').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_14').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_34').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_10').setAttribute('tabindex',0);
+      JotForm.setCustomHint( 'input_10', 'Type here...' );
+if (window.JotForm && JotForm.accessible) $('input_39').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_45').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_23').setAttribute('tabindex',0);
+      JotForm.setCustomHint( 'input_23', 'Type here...' );
+if (window.JotForm && JotForm.accessible) $('input_37').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_44').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_36').setAttribute('tabindex',0);
+      JotForm.alterTexts(undefined);
+      setTimeout(function() {
+          JotForm.initMultipleUploads();
+      }, 2);
+	/*INIT-END*/
+	});
+
+   JotForm.prepareCalculationsOnTheFly([null,{"name":"heading","qid":"1","text":"Coffee with Lex Fridman","type":"control_head"},{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},{"name":"typeA","qid":"3","text":"Location - Country, Region, City","type":"control_widget"},null,{"name":"input5","qid":"5","text":"I'll be traveling a bunch soon, across US and across the World. Along the way, I'd like to meet interesting people from all walks of life, and chat over coffee. So, if you want to chat with me, anywhere in the world, please fill out this form. Further details are provided here.\nPrivacy: Everything in this form is kept 100% private. I'm asking you to provide name, contact info, etc., and I'll be sure to keep this info private to me (Lex).\nInfo: Please provide as much detailed info as possible (all relevant fields if possible). It helps me know you're a real human being and someone I can trust. That said, most fields in this form are optional.\nGoal: If you know me it's probably obvious, but I should make it explicit: The purpose of this chat is not transactional in any way. With this meeting, I have no interest in money, sex, networking, business partnerships, a pitch for a new big idea you have, etc. I'm simply looking for a genuine human connection, a brief conversation, and to learn more about this beautiful world of ours.","type":"control_text"},null,{"description":"","name":"name","qid":"7","subLabel":"","text":"Name","type":"control_textbox"},{"description":"","name":"email","qid":"8","subLabel":"example@example.com","text":"Email","type":"control_email"},null,{"description":"","name":"addressOf","qid":"10","subLabel":"","text":"Address of the public place where we can have coffee\u002Flunch\u002Fdinner or just chat (such that I can paste it into Google Maps and it'll show me exact location)","type":"control_textarea"},null,{"description":"","name":"twitterurl","qid":"12","subLabel":"","text":"Twitter (URL to your profile)","type":"control_textbox"},{"description":"","name":"instagramurl","qid":"13","subLabel":"","text":"Instagram (URL to your profile)","type":"control_textbox"},{"description":"","name":"linkedinurl","qid":"14","subLabel":"","text":"LinkedIn (URL to your profile)","type":"control_textbox"},null,null,null,null,null,null,null,null,{"description":"","name":"tellMe","qid":"23","subLabel":"","text":"Tell me about yourself: What do you do (career & hobbies), life story, sources of happiness or worry, and anything else you want to say about yourself. Reminder: This is completely confidential (as is the rest of this form).","type":"control_textarea"},{"description":"","name":"photosOf","qid":"24","subLabel":"","text":"Photos of yourself (to help me know you're a real person). Reminder: This is completely confidential (as is the rest of this form).","type":"control_fileupload"},{"name":"input25","qid":"25","text":"For the following &quot;Location&quot; field, you will be asked to list Country, Region\u002FState, and City. If there is a major city (population over 1 million) nearby (less than 30 miles \u002F 50 km), please list that city. If not, then list your city or closest city available in the dropdown menus.","type":"control_text"},{"description":"","name":"doYou","qid":"26","text":"Do you listen to the Lex Fridman Podcast?","type":"control_radio"},null,{"description":"","name":"yourInterest","qid":"28","text":"Your interest in meeting (select ALL that apply). Please be honest. In addition, you can provide more context and details to this in the question at the end of this form.","type":"control_checkbox"},{"name":"input29","qid":"29","text":"","type":"control_text"},null,null,null,null,{"description":"","name":"phoneNumber","qid":"34","subLabel":"","text":"Phone Number (with country code, if not US)","type":"control_textbox"},{"description":"","name":"howDo","qid":"35","text":"How do you prefer to be contacted (select all that apply).","type":"control_checkbox"},{"description":"","name":"whyDo","qid":"36","subLabel":"","text":"Why do you want to chat with me? Anything you want to elaborate on beyond your multi-choice answer to the \"Your interest in meeting\" question above.","type":"control_textarea"},{"description":"","name":"someOf","qid":"37","subLabel":"","text":"Some of your favorite books, movies, songs, video games, etc.","type":"control_textarea"},{"description":"","name":"areYou","qid":"38","text":"Are you willing to travel to me for the chat over coffee?","type":"control_radio"},{"description":"","name":"whatLanguages","qid":"39","subLabel":"","text":"What languages do you speak fluently or conversationally? (Please list English, if you speak English). Separate by commas.","type":"control_textbox"},{"description":"","name":"ageReminder","qid":"40","subLabel":"","text":"Age. Reminder: This is completely confidential (as is the rest of this form).","type":"control_number"},{"description":"","name":"gender","qid":"41","text":"Gender","type":"control_radio"},null,{"description":"","name":"doYou43","qid":"43","text":"Do you have any skills useful in case of zombie apocalypse? (E.g., building a shelter, starting a fire, driving at high speeds away from zombies, etc.)","type":"control_radio"},{"description":"","name":"tellMe44","qid":"44","subLabel":"","text":"Tell me about your ideas & values, what you believe (politically, socially, economically), including opinions you have that most people don't agree with you on.","type":"control_textarea"},{"description":"","name":"listOf","qid":"45","subLabel":"","text":"List of interests - career, personal, and otherwise (i.e. physics, AI, literature, jiu jitsu, space, philosophy, history, etc.). Please keep list brief to highest-interest topics. Separate by commas.","type":"control_textbox"}]);
+   setTimeout(function() {
+JotForm.paymentExtrasOnTheFly([null,{"name":"heading","qid":"1","text":"Coffee with Lex Fridman","type":"control_head"},{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},{"name":"typeA","qid":"3","text":"Location - Country, Region, City","type":"control_widget"},null,{"name":"input5","qid":"5","text":"I'll be traveling a bunch soon, across US and across the World. Along the way, I'd like to meet interesting people from all walks of life, and chat over coffee. So, if you want to chat with me, anywhere in the world, please fill out this form. Further details are provided here.\nPrivacy: Everything in this form is kept 100% private. I'm asking you to provide name, contact info, etc., and I'll be sure to keep this info private to me (Lex).\nInfo: Please provide as much detailed info as possible (all relevant fields if possible). It helps me know you're a real human being and someone I can trust. That said, most fields in this form are optional.\nGoal: If you know me it's probably obvious, but I should make it explicit: The purpose of this chat is not transactional in any way. With this meeting, I have no interest in money, sex, networking, business partnerships, a pitch for a new big idea you have, etc. I'm simply looking for a genuine human connection, a brief conversation, and to learn more about this beautiful world of ours.","type":"control_text"},null,{"description":"","name":"name","qid":"7","subLabel":"","text":"Name","type":"control_textbox"},{"description":"","name":"email","qid":"8","subLabel":"example@example.com","text":"Email","type":"control_email"},null,{"description":"","name":"addressOf","qid":"10","subLabel":"","text":"Address of the public place where we can have coffee\u002Flunch\u002Fdinner or just chat (such that I can paste it into Google Maps and it'll show me exact location)","type":"control_textarea"},null,{"description":"","name":"twitterurl","qid":"12","subLabel":"","text":"Twitter (URL to your profile)","type":"control_textbox"},{"description":"","name":"instagramurl","qid":"13","subLabel":"","text":"Instagram (URL to your profile)","type":"control_textbox"},{"description":"","name":"linkedinurl","qid":"14","subLabel":"","text":"LinkedIn (URL to your profile)","type":"control_textbox"},null,null,null,null,null,null,null,null,{"description":"","name":"tellMe","qid":"23","subLabel":"","text":"Tell me about yourself: What do you do (career & hobbies), life story, sources of happiness or worry, and anything else you want to say about yourself. Reminder: This is completely confidential (as is the rest of this form).","type":"control_textarea"},{"description":"","name":"photosOf","qid":"24","subLabel":"","text":"Photos of yourself (to help me know you're a real person). Reminder: This is completely confidential (as is the rest of this form).","type":"control_fileupload"},{"name":"input25","qid":"25","text":"For the following &quot;Location&quot; field, you will be asked to list Country, Region\u002FState, and City. If there is a major city (population over 1 million) nearby (less than 30 miles \u002F 50 km), please list that city. If not, then list your city or closest city available in the dropdown menus.","type":"control_text"},{"description":"","name":"doYou","qid":"26","text":"Do you listen to the Lex Fridman Podcast?","type":"control_radio"},null,{"description":"","name":"yourInterest","qid":"28","text":"Your interest in meeting (select ALL that apply). Please be honest. In addition, you can provide more context and details to this in the question at the end of this form.","type":"control_checkbox"},{"name":"input29","qid":"29","text":"","type":"control_text"},null,null,null,null,{"description":"","name":"phoneNumber","qid":"34","subLabel":"","text":"Phone Number (with country code, if not US)","type":"control_textbox"},{"description":"","name":"howDo","qid":"35","text":"How do you prefer to be contacted (select all that apply).","type":"control_checkbox"},{"description":"","name":"whyDo","qid":"36","subLabel":"","text":"Why do you want to chat with me? Anything you want to elaborate on beyond your multi-choice answer to the \"Your interest in meeting\" question above.","type":"control_textarea"},{"description":"","name":"someOf","qid":"37","subLabel":"","text":"Some of your favorite books, movies, songs, video games, etc.","type":"control_textarea"},{"description":"","name":"areYou","qid":"38","text":"Are you willing to travel to me for the chat over coffee?","type":"control_radio"},{"description":"","name":"whatLanguages","qid":"39","subLabel":"","text":"What languages do you speak fluently or conversationally? (Please list English, if you speak English). Separate by commas.","type":"control_textbox"},{"description":"","name":"ageReminder","qid":"40","subLabel":"","text":"Age. Reminder: This is completely confidential (as is the rest of this form).","type":"control_number"},{"description":"","name":"gender","qid":"41","text":"Gender","type":"control_radio"},null,{"description":"","name":"doYou43","qid":"43","text":"Do you have any skills useful in case of zombie apocalypse? (E.g., building a shelter, starting a fire, driving at high speeds away from zombies, etc.)","type":"control_radio"},{"description":"","name":"tellMe44","qid":"44","subLabel":"","text":"Tell me about your ideas & values, what you believe (politically, socially, economically), including opinions you have that most people don't agree with you on.","type":"control_textarea"},{"description":"","name":"listOf","qid":"45","subLabel":"","text":"List of interests - career, personal, and otherwise (i.e. physics, AI, literature, jiu jitsu, space, philosophy, history, etc.). Please keep list brief to highest-interest topics. Separate by commas.","type":"control_textbox"}]);}, 20); 
+</script>
+</head>
+<body>
+<form class="jotform-form" action="https://submit.jotform.com/submit/230415467865159/" method="post" enctype="multipart/form-data" name="form_230415467865159" id="230415467865159" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="230415467865159" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" />
+  <div role="main" class="form-all">
+    <style>
+      .form-all:before
+      {
+        background: none;
+      }
+    </style>
+    <ul class="form-section page-section">
+      <li id="cid_1" class="form-input-wide" data-type="control_head">
+        <div class="form-header-group  header-large">
+          <div class="header-text httal htvam">
+            <h1 id="header_1" class="form-header" data-component="header">Coffee with Lex Fridman</h1>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_text" id="id_5">
+        <div id="cid_5" class="form-input-wide" data-layout="full">
+          <div id="text_5" class="form-html" data-component="text" tabindex="0">
+            <p>I'll be traveling a bunch soon, across US and across the World. Along the way, I'd like to meet interesting people from all walks of life, and chat over coffee. So, if you want to chat with me, anywhere in the world, please fill out this form. Further details are provided here.</p>
+            <p><strong>Privacy</strong>: Everything in this form is kept 100% private. I'm asking you to provide name, contact info, etc., and I'll be sure to keep this info private to me (Lex).</p>
+            <p><strong>Info</strong>: Please provide as much detailed info as possible (all relevant fields if possible). It helps me know you're a real human being and someone I can trust. That said, most fields in this form are optional.</p>
+            <p><strong>Goal: </strong>If you know me it's probably obvious, but I should make it explicit: The purpose of this chat is not transactional in any way. With this meeting, I have no interest in money, sex, networking, business partnerships, a pitch for a new big idea you have, etc. I'm simply looking for a genuine human connection, a brief conversation, and to learn more about this beautiful world of ours.</p>
+          </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_7"><label class="form-label form-label-top form-label-auto" id="label_7" for="input_7"> Name<span class="form-required">*</span> </label>
+        <div id="cid_7" class="form-input-wide jf-required" data-layout="half"> <input type="text" id="input_7" name="q7_name" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_7" required="" /> </div>
+      </li>
+      <li class="form-line" data-type="control_email" id="id_8"><label class="form-label form-label-top form-label-auto" id="label_8" for="input_8"> Email </label>
+        <div id="cid_8" class="form-input-wide" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_8" name="q8_email" class="form-textbox validate[Email]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="email" aria-labelledby="label_8 sublabel_input_8" /><label class="form-sub-label" for="input_8" id="sublabel_input_8" style="min-height:13px" aria-hidden="false">example@example.com</label></span> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_12"><label class="form-label form-label-top form-label-auto" id="label_12" for="input_12"> Twitter (URL to your profile) </label>
+        <div id="cid_12" class="form-input-wide" data-layout="half"> <input type="text" id="input_12" name="q12_twitterurl" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_12" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_13"><label class="form-label form-label-top form-label-auto" id="label_13" for="input_13"> Instagram (URL to your profile) </label>
+        <div id="cid_13" class="form-input-wide" data-layout="half"> <input type="text" id="input_13" name="q13_instagramurl" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_13" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_14"><label class="form-label form-label-top form-label-auto" id="label_14" for="input_14"> LinkedIn (URL to your profile) </label>
+        <div id="cid_14" class="form-input-wide" data-layout="half"> <input type="text" id="input_14" name="q14_linkedinurl" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_14" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_34"><label class="form-label form-label-top form-label-auto" id="label_34" for="input_34"> Phone Number (with country code, if not US) </label>
+        <div id="cid_34" class="form-input-wide" data-layout="half"> <input type="text" id="input_34" name="q34_phoneNumber" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_34" /> </div>
+      </li>
+      <li class="form-line" data-type="control_checkbox" id="id_35"><label class="form-label form-label-top form-label-auto" id="label_35" for="input_35"> How do you prefer to be contacted (select all that apply). </label>
+        <div id="cid_35" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_35" data-component="checkbox"><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_0" name="q35_howDo[]" value="Email" /><label id="label_input_35_0" for="input_35_0">Email</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_1" name="q35_howDo[]" value="Phone call" /><label id="label_input_35_1" for="input_35_1">Phone call</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_2" name="q35_howDo[]" value="WhatsApp" /><label id="label_input_35_2" for="input_35_2">WhatsApp</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_3" name="q35_howDo[]" value="Telegram" /><label id="label_input_35_3" for="input_35_3">Telegram</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_4" name="q35_howDo[]" value="Instagram" /><label id="label_input_35_4" for="input_35_4">Instagram</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_5" name="q35_howDo[]" value="Twitter" /><label id="label_input_35_5" for="input_35_5">Twitter</label></span><span class="form-checkbox-item formCheckboxOther" style="clear:left"><input type="checkbox" class="form-checkbox-other form-checkbox" name="q35_howDo[other]" id="other_35" value="other" tabindex="0" aria-label="Other" /><label id="label_other_35" style="text-indent:0" for="other_35">Other</label><span id="other_35_input" class="other-input-container" style="display:none"><input type="text" class="form-checkbox-other-input form-textbox" name="q35_howDo[other]" data-otherhint="Other" size="15" id="input_35" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_checkbox" id="id_28"><label class="form-label form-label-top form-label-auto" id="label_28" for="input_28"> Your interest in meeting (select ALL that apply). Please be honest. In addition, you can provide more context and details to this in the question at the end of this form. </label>
+        <div id="cid_28" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_28" data-component="checkbox"><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_0" name="q28_yourInterest[]" value="Just meet &amp; chat about life" /><label id="label_input_28_0" for="input_28_0">Just meet & chat about life</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_1" name="q28_yourInterest[]" value="Technical discussion (AI, robotics, physics, biology, etc.)" /><label id="label_input_28_1" for="input_28_1">Technical discussion (AI, robotics, physics, biology, etc.)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_2" name="q28_yourInterest[]" value="Philosophical discussion (including history, art, literature, etc.)" /><label id="label_input_28_2" for="input_28_2">Philosophical discussion (including history, art, literature, etc.)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_3" name="q28_yourInterest[]" value="Guest on Lex Fridman Podcast (potential)" /><label id="label_input_28_3" for="input_28_3">Guest on Lex Fridman Podcast (potential)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_4" name="q28_yourInterest[]" value="Friendship (potential)" /><label id="label_input_28_4" for="input_28_4">Friendship (potential)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_5" name="q28_yourInterest[]" value="Romantic (potential)" /><label id="label_input_28_5" for="input_28_5">Romantic (potential)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_6" name="q28_yourInterest[]" value="Same-day marriage (preferably in Las Vegas)" /><label id="label_input_28_6" for="input_28_6">Same-day marriage (preferably in Las Vegas)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_7" name="q28_yourInterest[]" value="Grappling match (preferably to the death)" /><label id="label_input_28_7" for="input_28_7">Grappling match (preferably to the death)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_8" name="q28_yourInterest[]" value="Pitch a business idea" /><label id="label_input_28_8" for="input_28_8">Pitch a business idea</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_9" name="q28_yourInterest[]" value="Want to work with me" /><label id="label_input_28_9" for="input_28_9">Want to work with me</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_10" name="q28_yourInterest[]" value="Want to travel along with me" /><label id="label_input_28_10" for="input_28_10">Want to travel along with me</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_11" name="q28_yourInterest[]" value="Be a local tour guide to cool places around where you live" /><label id="label_input_28_11" for="input_28_11">Be a local tour guide to cool places around where you live</label></span><span class="form-checkbox-item formCheckboxOther" style="clear:left"><input type="checkbox" class="form-checkbox-other form-checkbox" name="q28_yourInterest[other]" id="other_28" value="other" tabindex="0" aria-label="Other" /><label id="label_other_28" style="text-indent:0" for="other_28">Other</label><span id="other_28_input" class="other-input-container" style="display:none"><input type="text" class="form-checkbox-other-input form-textbox" name="q28_yourInterest[other]" data-otherhint="Other" size="15" id="input_28" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_text" id="id_25">
+        <div id="cid_25" class="form-input-wide" data-layout="full">
+          <div id="text_25" class="form-html" data-component="text" tabindex="0">
+            <p>For the following &quot;Location&quot; field, you will be asked to list Country, Region/State, and City. If there is a major city (population over 1 million) nearby (less than 30 miles / 50 km), please list that city. If not, then list your city or closest city available in the dropdown menus.</p>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_widget" id="id_3"><label class="form-label form-label-top form-label-auto" id="label_3" for="input_3"> Location - Country, Region, City </label>
+        <div id="cid_3" class="form-input-wide" data-layout="full">
+          <div data-widget-name="All States and Cities" style="width:100%;text-align:Left;overflow-x:auto" data-component="widget-field"><iframe data-client-id="5332f3a44c4b0bf81a000005" title="All States and Cities" frameBorder="0" scrolling="no" allowtransparency="true" allow="geolocation; microphone; camera; autoplay; encrypted-media; fullscreen" data-type="iframe" class="custom-field-frame" id="customFieldFrame_3" src="" style="max-width:450px;border:none;width:100%;height:150px" data-width="450" data-height="150"></iframe>
+            <div class="widget-inputs-wrapper"><input type="hidden" id="input_3" class="form-hidden form-widget  " name="q3_typeA" value="" /><input type="hidden" id="widget_settings_3" class="form-hidden form-widget-settings" value="%5B%5D" data-version="2" /></div>
+            <script type="text/javascript">
+              setTimeout(function()
+              {
+                var _cFieldFrame = document.getElementById("customFieldFrame_3");
+                if (_cFieldFrame)
+                {
+                  _cFieldFrame.onload = function()
+                  {
+                    if (typeof widgetFrameLoaded !== 'undefined')
+                    {
+                      widgetFrameLoaded(3,
+                      {
+                        "formID": 230415467865159
+                      })
+                    }
+                  };
+                  _cFieldFrame.src = "//data-widgets.jotform.io/allCities/?qid=3&ref=" +
+                    encodeURIComponent(window.location.protocol + "//" + window.location.host) + '' + '' + '' +
+                    '&injectCSS=' + encodeURIComponent(window.location.search.indexOf("ndt=1") > -1);
+                  _cFieldFrame.addClassName("custom-field-frame-rendered");
+                }
+              }, 0);
+            </script>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_10"><label class="form-label form-label-top form-label-auto" id="label_10" for="input_10"> Address of the public place where we can have coffee/lunch/dinner or just chat (such that I can paste it into Google Maps and it'll show me exact location) </label>
+        <div id="cid_10" class="form-input-wide" data-layout="full"> <textarea id="input_10" class="form-textarea" name="q10_addressOf" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_10"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_radio" id="id_38"><label class="form-label form-label-top form-label-auto" id="label_38" for="input_38"> Are you willing to travel to me for the chat over coffee? </label>
+        <div id="cid_38" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_38" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_0" name="q38_areYou" value="Yes, around the city I listed" /><label id="label_input_38_0" for="input_38_0">Yes, around the city I listed</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_1" name="q38_areYou" value="Yes, around the country I listed" /><label id="label_input_38_1" for="input_38_1">Yes, around the country I listed</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_2" name="q38_areYou" value="Yes, but not more than 1,000 miles" /><label id="label_input_38_2" for="input_38_2">Yes, but not more than 1,000 miles</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_3" name="q38_areYou" value="Yes, anywhere in the world (reasonably)" /><label id="label_input_38_3" for="input_38_3">Yes, anywhere in the world (reasonably)</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_4" name="q38_areYou" value="No, not really" /><label id="label_input_38_4" for="input_38_4">No, not really</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_5" name="q38_areYou" value="Not sure" /><label id="label_input_38_5" for="input_38_5">Not sure</label></span><span class="form-radio-item formRadioOther" style="clear:left"><input type="radio" class="form-radio-other form-radio" name="q38_areYou" id="other_38" value="other" tabindex="0" aria-label="Other" /><label id="label_other_38" style="text-indent:0" for="other_38">Other</label><span id="other_38_input" class="other-input-container" style="display:none"><input type="text" class="form-radio-other-input form-textbox" name="q38_areYou[other]" data-otherhint="Other" size="15" id="input_38" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_fileupload" id="id_24"><label class="form-label form-label-top form-label-auto" id="label_24" for="input_24"> Photos of yourself (to help me know you're a real person). Reminder: This is completely confidential (as is the rest of this form). </label>
+        <div id="cid_24" class="form-input-wide" data-layout="full">
+          <div class="jfQuestion-fields" data-wrapper-react="true">
+            <div class="jfField isFilled">
+              <div class="jfUpload-wrapper">
+                <div class="jfUpload-container">
+                  <div class="jfUpload-text-container">
+                    <div class="jfUpload-icon forDesktop"><span class="iconSvg  dhtupload ">function SvgDhtupload2(props) {
+                        return /* @__PURE__ */ react.createElement("svg", dhtupload_svg_extends({
+                        width: 54,
+                        height: 47,
+                        xmlns: "http://www.w3.org/2000/svg"
+                        }, props), dhtupload_svg_path || (dhtupload_svg_path = /* @__PURE__ */ react.createElement("path", {
+                        d: "M40.213 10.172c1.897.21 3.68.738 5.35 1.58a15.748 15.748 0 0 1 4.374 3.242 15.065 15.065 0 0 1 2.951 4.533c.72 1.704 1.08 3.522 1.08 5.455 0 1.827-.28 3.654-.843 5.48-.562 1.828-1.379 3.47-2.45 4.929A13.39 13.39 0 0 1 46.669 39c-1.599.948-3.452 1.458-5.56 1.528H37.26a1.62 1.62 0 0 1-1.185-.5 1.62 1.62 0 0 1-.501-1.186c0-.457.167-.852.5-1.186.334-.334.73-.5 1.186-.5h3.848c1.44 0 2.75-.37 3.926-1.108a10.851 10.851 0 0 0 3.03-2.846 13.53 13.53 0 0 0 1.95-3.9 14.23 14.23 0 0 0 .686-4.321c0-1.582-.316-3.066-.949-4.454a11.623 11.623 0 0 0-2.582-3.636 12.857 12.857 0 0 0-3.742-2.478 11.054 11.054 0 0 0-4.48-.922l-1.212-.053-.37-1.159c-.878-2.81-2.292-4.998-4.242-6.562-1.95-1.563-4.594-2.345-7.932-2.345-2.108 0-4.005.36-5.692 1.08-1.686.72-3.136 1.722-4.348 3.005-1.212 1.282-2.143 2.81-2.793 4.585-.65 1.774-.975 3.68-.975 5.718h.053l.105 1.581-1.528.264c-1.863.316-3.444 1.317-4.744 3.004-1.3 1.686-1.95 3.584-1.95 5.692 0 2.39.8 4.462 2.398 6.219 1.599 1.757 3.488 2.635 5.666 2.635h4.849c.492 0 .896.167 1.212.5.316.335.474.73.474 1.187 0 .456-.158.852-.474 1.185-.316.334-.72.501-1.212.501h-4.849a10.08 10.08 0 0 1-4.374-.975 11.673 11.673 0 0 1-3.61-2.661 13.173 13.173 0 0 1-2.478-3.9A12.073 12.073 0 0 1 0 28.301c0-2.706.755-5.148 2.266-7.326 1.511-2.178 3.444-3.636 5.798-4.374.14-2.354.658-4.542 1.554-6.562.896-2.02 2.091-3.777 3.584-5.27 1.494-1.494 3.25-2.662 5.27-3.505C20.493.422 22.733 0 25.193 0c1.898 0 3.637.237 5.218.711 1.581.475 3.004 1.151 4.269 2.03a13.518 13.518 0 0 1 3.268 3.215 18.628 18.628 0 0 1 2.266 4.216Zm-11.964 13.44 6.22 6.85c.245.247.368.537.368.87 0 .334-.123.642-.369.923l-.421.263c-.211.246-.484.343-.817.29a1.544 1.544 0 0 1-.87-.448l-3.69-4.11v16.97c0 .492-.166.896-.5 1.212-.334.316-.729.474-1.186.474-.492 0-.896-.158-1.212-.474-.316-.316-.474-.72-.474-1.212V28.25l-3.584 4.005a1.544 1.544 0 0 1-.87.448.959.959 0 0 1-.87-.29l-.42-.264c-.247-.28-.37-.588-.37-.922 0-.334.123-.624.37-.87l6.113-6.746v-.052l.421-.422a.804.804 0 0 1 .396-.29c.158-.053.307-.079.448-.079.175 0 .333.026.474.079.14.053.281.15.422.29l.421.422v.052Z",
+                        fill: "none"
+                        })));
+                        }</span></div>
+                  </div>
+                  <div class="jfUpload-button-container">
+                    <div class="jfUpload-button" aria-hidden="true" tabindex="0" style="display:none" data-version="v2">Browse Files<div class="jfUpload-heading forDesktop">Drag and drop files here</div>
+                      <div class="jfUpload-heading forMobile">Choose a file</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jfUpload-files-container">
+                  <div class="validate[multipleUpload]"><input type="file" id="input_24" name="q24_photosOf[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, zip, wma, mpg, avi, jpg, jpeg, png, gif, tiff, bmp, tif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" aria-label="Browse Files" /></div>
+                </div>
+              </div>
+              <div data-wrapper-react="true"></div>
+            </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_radio" id="id_41"><label class="form-label form-label-top form-label-auto" id="label_41" for="input_41"> Gender </label>
+        <div id="cid_41" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_41" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_41" class="form-radio" id="input_41_0" name="q41_gender" value="Male" /><label id="label_input_41_0" for="input_41_0">Male</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_41" class="form-radio" id="input_41_1" name="q41_gender" value="Female" /><label id="label_input_41_1" for="input_41_1">Female</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_41" class="form-radio" id="input_41_2" name="q41_gender" value="Other" /><label id="label_input_41_2" for="input_41_2">Other</label></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_number" id="id_40"><label class="form-label form-label-top form-label-auto" id="label_40" for="input_40"> Age. Reminder: This is completely confidential (as is the rest of this form). </label>
+        <div id="cid_40" class="form-input-wide" data-layout="half"> <input type="number" id="input_40" name="q40_ageReminder" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="number" aria-labelledby="label_40" step="any" /> </div>
+      </li>
+      <li class="form-line" data-type="control_radio" id="id_43"><label class="form-label form-label-top form-label-auto" id="label_43" for="input_43"> Do you have any skills useful in case of zombie apocalypse? (E.g., building a shelter, starting a fire, driving at high speeds away from zombies, etc.) </label>
+        <div id="cid_43" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_43" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_43" class="form-radio" id="input_43_0" name="q43_doYou43" value="Yes" /><label id="label_input_43_0" for="input_43_0">Yes</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_43" class="form-radio" id="input_43_1" name="q43_doYou43" value="Maybe" /><label id="label_input_43_1" for="input_43_1">Maybe</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_43" class="form-radio" id="input_43_2" name="q43_doYou43" value="No" /><label id="label_input_43_2" for="input_43_2">No</label></span><span class="form-radio-item formRadioOther" style="clear:left"><input type="radio" class="form-radio-other form-radio" name="q43_doYou43" id="other_43" value="other" tabindex="0" aria-label="Other" /><label id="label_other_43" style="text-indent:0" for="other_43">Other</label><span id="other_43_input" class="other-input-container" style="display:none"><input type="text" class="form-radio-other-input form-textbox" name="q43_doYou43[other]" data-otherhint="Other" size="15" id="input_43" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_radio" id="id_26"><label class="form-label form-label-top form-label-auto" id="label_26" for="input_26"> Do you listen to the Lex Fridman Podcast? </label>
+        <div id="cid_26" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_26" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_0" name="q26_doYou" value="I listen to every episode, huge fan!" /><label id="label_input_26_0" for="input_26_0">I listen to every episode, huge fan!</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_1" name="q26_doYou" value="I listen to most episodes" /><label id="label_input_26_1" for="input_26_1">I listen to most episodes</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_2" name="q26_doYou" value="I listen to many episodes" /><label id="label_input_26_2" for="input_26_2">I listen to many episodes</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_3" name="q26_doYou" value="I listen occassionally" /><label id="label_input_26_3" for="input_26_3">I listen occassionally</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_4" name="q26_doYou" value="I rarely listen" /><label id="label_input_26_4" for="input_26_4">I rarely listen</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_5" name="q26_doYou" value="I&#x27;ve never listened to it" /><label id="label_input_26_5" for="input_26_5">I've never listened to it</label></span><span class="form-radio-item formRadioOther" style="clear:left"><input type="radio" class="form-radio-other form-radio" name="q26_doYou" id="other_26" value="other" tabindex="0" aria-label="Other" /><label id="label_other_26" style="text-indent:0" for="other_26">Other</label><span id="other_26_input" class="other-input-container" style="display:none"><input type="text" class="form-radio-other-input form-textbox" name="q26_doYou[other]" data-otherhint="Other" size="15" id="input_26" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_39"><label class="form-label form-label-top form-label-auto" id="label_39" for="input_39"> What languages do you speak fluently or conversationally? (Please list English, if you speak English). Separate by commas. </label>
+        <div id="cid_39" class="form-input-wide" data-layout="half"> <input type="text" id="input_39" name="q39_whatLanguages" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_39" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_45"><label class="form-label form-label-top form-label-auto" id="label_45" for="input_45"> List of interests - career, personal, and otherwise (i.e. physics, AI, literature, jiu jitsu, space, philosophy, history, etc.). Please keep list brief to highest-interest topics. Separate by commas. </label>
+        <div id="cid_45" class="form-input-wide" data-layout="half"> <input type="text" id="input_45" name="q45_listOf" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_45" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_23"><label class="form-label form-label-top form-label-auto" id="label_23" for="input_23"> Tell me about yourself: What do you do (career &amp; hobbies), life story, sources of happiness or worry, and anything else you want to say about yourself. Reminder: This is completely confidential (as is the rest of this form). </label>
+        <div id="cid_23" class="form-input-wide" data-layout="full"> <textarea id="input_23" class="form-textarea" name="q23_tellMe" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_23"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_37"><label class="form-label form-label-top form-label-auto" id="label_37" for="input_37"> Some of your favorite books, movies, songs, video games, etc. </label>
+        <div id="cid_37" class="form-input-wide" data-layout="full"> <textarea id="input_37" class="form-textarea" name="q37_someOf" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_37"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_44"><label class="form-label form-label-top form-label-auto" id="label_44" for="input_44"> Tell me about your ideas &amp; values, what you believe (politically, socially, economically), including opinions you have that most people don't agree with you on. </label>
+        <div id="cid_44" class="form-input-wide" data-layout="full"> <textarea id="input_44" class="form-textarea" name="q44_tellMe44" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_44"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_36"><label class="form-label form-label-top form-label-auto" id="label_36" for="input_36"> Why do you want to chat with me? Anything you want to elaborate on beyond your multi-choice answer to the &quot;Your interest in meeting&quot; question above. </label>
+        <div id="cid_36" class="form-input-wide" data-layout="full"> <textarea id="input_36" class="form-textarea" name="q36_whyDo" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_36"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_button" id="id_2">
+        <div id="cid_2" class="form-input-wide" data-layout="full">
+          <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField"><button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">Submit</button></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_text" id="id_29">
+        <div id="cid_29" class="form-input-wide" data-layout="full">
+          <div id="text_29" class="form-html" data-component="text" tabindex="0"></div>
+        </div>
+      </li>
+      <li style="display:none">Should be Empty: <input type="text" name="website" value="" /></li>
+    </ul>
+  </div>
+  <script>
+    JotForm.showJotFormPowered = "0";
+  </script>
+  <script>
+    JotForm.poweredByText = "Powered by Jotform";
+  </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="230415467865159" />
+  <script type="text/javascript">
+    var all_spc = document.querySelectorAll("form[id='230415467865159'] .si" + "mple" + "_spc");
+    for (var i = 0; i < all_spc.length; i++)
+    {
+      all_spc[i].value = "230415467865159-230415467865159";
+    }
+  </script>
+</form></body>
+</html><script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.39584"></script>
+<script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.39584"></script>
 {% endblock %}
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-US"  class="supernova"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F230415467865159" title="oEmbed Form">
+<link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F230415467865159" title="oEmbed Form">
+<meta property="og:title" content="Coffee with Lex Fridman" >
+<meta property="og:url" content="https://submit.jotform.com/230415467865159" >
+<meta property="og:description" content="Please click the link to complete this form." >
+<meta name="slack-app-id" content="AHNMASS8M">
+<meta property="og:image" content="https://cdn.jotfor.ms/assets/img/landing/opengraph.png" />
+<meta property="og:image" content="https://cdn.jotfor.ms/assets/img/favicons/favicon-2021-light%402x.png" />
+<link rel="shortcut icon" href="https://cdn.jotfor.ms/assets/img/favicons/favicon-2021-light%402x.png">
+<script>
+          var favicon = document.querySelector('link[rel="shortcut icon"]');
+          window.isDarkMode = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if(favicon && window.isDarkMode) {
+              favicon.href = favicon.href.replaceAll('favicon-2021-light%402x.png', 'favicon-2021-dark%402x.png');
+          }
+      </script><link rel="canonical" href="https://submit.jotform.com/230415467865159" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1" />
+<meta name="HandheldFriendly" content="true" />
+<title>Coffee with Lex Fridman</title>
+<style type="text/css">@media print{.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+<link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?v=3.3.39644&themeRevisionID=5f7ed99c2c2c7240ba580251"/>
+<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/payment/payment_styles.css?3.3.39644" />
+<link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/payment/payment_feature.css?3.3.39644" />
+<script src="https://cdn01.jotfor.ms/static/prototype.forms.js?3.3.39644" type="text/javascript"></script>
+<script src="https://cdn02.jotfor.ms/static/jotform.forms.js?3.3.39644" type="text/javascript"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/punycode/1.4.1/punycode.js"></script>
+<script src="https://cdn03.jotfor.ms/js/vendor/imageinfo.js?v=3.3.39644" type="text/javascript"></script>
+<script src="https://cdn01.jotfor.ms/file-uploader/fileuploader.js?v=3.3.39644"></script>
+<script src="https://js.jotform.com/vendor/postMessage.js?3.3.39644" type="text/javascript"></script>
+<script src="https://js.jotform.com/WidgetsServer.js?v=1677260392460" type="text/javascript"></script>
+<script type="text/javascript">	JotForm.newDefaultTheme = true;
+	JotForm.extendsNewTheme = false;
+	JotForm.singleProduct = false;
+	JotForm.newPaymentUIForNewCreatedForms = true;
+	JotForm.newPaymentUI = true;
+	JotForm.clearFieldOnHide="disable";
+	JotForm.submitError="jumpToFirstError";
+
+	JotForm.init(function(){
+	/*INIT-START*/
+if (window.JotForm && JotForm.accessible) $('input_7').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_12').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_13').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_14').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_34').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_10').setAttribute('tabindex',0);
+      JotForm.setCustomHint( 'input_10', 'Type here...' );
+if (window.JotForm && JotForm.accessible) $('input_39').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_45').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_23').setAttribute('tabindex',0);
+      JotForm.setCustomHint( 'input_23', 'Type here...' );
+if (window.JotForm && JotForm.accessible) $('input_37').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_44').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_36').setAttribute('tabindex',0);
+      JotForm.alterTexts(undefined);
+      setTimeout(function() {
+          JotForm.initMultipleUploads();
+      }, 2);
+	/*INIT-END*/
+	});
+
+   JotForm.prepareCalculationsOnTheFly([null,{"name":"heading","qid":"1","text":"Coffee with Lex Fridman","type":"control_head"},{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},{"name":"typeA","qid":"3","text":"Location - Country, Region, City","type":"control_widget"},null,{"name":"input5","qid":"5","text":"I'll be traveling a bunch soon, across US and across the World. Along the way, I'd like to meet interesting people from all walks of life, and chat over coffee. So, if you want to chat with me, anywhere in the world, please fill out this form. Further details are provided here.\nPrivacy: Everything in this form is kept 100% private. I'm asking you to provide name, contact info, etc., and I'll be sure to keep this info private to me (Lex).\nInfo: Please provide as much detailed info as possible (all relevant fields if possible). It helps me know you're a real human being and someone I can trust. That said, most fields in this form are optional.\nGoal: If you know me it's probably obvious, but I should make it explicit: The purpose of this chat is not transactional in any way. With this meeting, I have no interest in money, sex, networking, business partnerships, a pitch for a new big idea you have, etc. I'm simply looking for a genuine human connection, a brief conversation, and to learn more about this beautiful world of ours.","type":"control_text"},null,{"description":"","name":"name","qid":"7","subLabel":"","text":"Name","type":"control_textbox"},{"description":"","name":"email","qid":"8","subLabel":"example@example.com","text":"Email","type":"control_email"},null,{"description":"","name":"addressOf","qid":"10","subLabel":"","text":"Address of the public place where we can have coffee\u002Flunch\u002Fdinner or just chat (such that I can paste it into Google Maps and it'll show me exact location)","type":"control_textarea"},null,{"description":"","name":"twitterurl","qid":"12","subLabel":"","text":"Twitter (URL to your profile)","type":"control_textbox"},{"description":"","name":"instagramurl","qid":"13","subLabel":"","text":"Instagram (URL to your profile)","type":"control_textbox"},{"description":"","name":"linkedinurl","qid":"14","subLabel":"","text":"LinkedIn (URL to your profile)","type":"control_textbox"},null,null,null,null,null,null,null,null,{"description":"","name":"tellMe","qid":"23","subLabel":"","text":"Tell me about yourself: What do you do (career & hobbies), life story, sources of happiness or worry, and anything else you want to say about yourself. Reminder: This is completely confidential (as is the rest of this form).","type":"control_textarea"},{"description":"","name":"photosOf","qid":"24","subLabel":"","text":"Photos of yourself (to help me know you're a real person). Reminder: This is completely confidential (as is the rest of this form).","type":"control_fileupload"},{"name":"input25","qid":"25","text":"For the following &quot;Location&quot; field, you will be asked to list Country, Region\u002FState, and City. If there is a major city (population over 1 million) nearby (less than 30 miles \u002F 50 km), please list that city. If not, then list your city or closest city available in the dropdown menus.","type":"control_text"},{"description":"","name":"doYou","qid":"26","text":"Do you listen to the Lex Fridman Podcast?","type":"control_radio"},null,{"description":"","name":"yourInterest","qid":"28","text":"Your interest in meeting (select ALL that apply). Please be honest. In addition, you can provide more context and details to this in the question at the end of this form.","type":"control_checkbox"},{"name":"input29","qid":"29","text":"","type":"control_text"},null,null,null,null,{"description":"","name":"phoneNumber","qid":"34","subLabel":"","text":"Phone Number (with country code, if not US)","type":"control_textbox"},{"description":"","name":"howDo","qid":"35","text":"How do you prefer to be contacted (select all that apply).","type":"control_checkbox"},{"description":"","name":"whyDo","qid":"36","subLabel":"","text":"Why do you want to chat with me? Anything you want to elaborate on beyond your multi-choice answer to the \"Your interest in meeting\" question above.","type":"control_textarea"},{"description":"","name":"someOf","qid":"37","subLabel":"","text":"Some of your favorite books, movies, songs, video games, etc.","type":"control_textarea"},{"description":"","name":"areYou","qid":"38","text":"Are you willing to travel to me for the chat over coffee?","type":"control_radio"},{"description":"","name":"whatLanguages","qid":"39","subLabel":"","text":"What languages do you speak fluently or conversationally? (Please list English, if you speak English). Separate by commas.","type":"control_textbox"},{"description":"","name":"ageReminder","qid":"40","subLabel":"","text":"Age. Reminder: This is completely confidential (as is the rest of this form).","type":"control_number"},{"description":"","name":"gender","qid":"41","text":"Gender","type":"control_radio"},null,{"description":"","name":"doYou43","qid":"43","text":"Do you have any skills useful in case of zombie apocalypse? (E.g., building a shelter, starting a fire, driving at high speeds away from zombies, etc.)","type":"control_radio"},{"description":"","name":"tellMe44","qid":"44","subLabel":"","text":"Tell me about your ideas & values, what you believe (politically, socially, economically), including opinions you have that most people don't agree with you on.","type":"control_textarea"},{"description":"","name":"listOf","qid":"45","subLabel":"","text":"List of interests - career, personal, and otherwise (i.e. physics, AI, literature, jiu jitsu, space, philosophy, history, etc.). Please keep list brief to highest-interest topics. Separate by commas.","type":"control_textbox"}]);
+   setTimeout(function() {
+JotForm.paymentExtrasOnTheFly([null,{"name":"heading","qid":"1","text":"Coffee with Lex Fridman","type":"control_head"},{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},{"name":"typeA","qid":"3","text":"Location - Country, Region, City","type":"control_widget"},null,{"name":"input5","qid":"5","text":"I'll be traveling a bunch soon, across US and across the World. Along the way, I'd like to meet interesting people from all walks of life, and chat over coffee. So, if you want to chat with me, anywhere in the world, please fill out this form. Further details are provided here.\nPrivacy: Everything in this form is kept 100% private. I'm asking you to provide name, contact info, etc., and I'll be sure to keep this info private to me (Lex).\nInfo: Please provide as much detailed info as possible (all relevant fields if possible). It helps me know you're a real human being and someone I can trust. That said, most fields in this form are optional.\nGoal: If you know me it's probably obvious, but I should make it explicit: The purpose of this chat is not transactional in any way. With this meeting, I have no interest in money, sex, networking, business partnerships, a pitch for a new big idea you have, etc. I'm simply looking for a genuine human connection, a brief conversation, and to learn more about this beautiful world of ours.","type":"control_text"},null,{"description":"","name":"name","qid":"7","subLabel":"","text":"Name","type":"control_textbox"},{"description":"","name":"email","qid":"8","subLabel":"example@example.com","text":"Email","type":"control_email"},null,{"description":"","name":"addressOf","qid":"10","subLabel":"","text":"Address of the public place where we can have coffee\u002Flunch\u002Fdinner or just chat (such that I can paste it into Google Maps and it'll show me exact location)","type":"control_textarea"},null,{"description":"","name":"twitterurl","qid":"12","subLabel":"","text":"Twitter (URL to your profile)","type":"control_textbox"},{"description":"","name":"instagramurl","qid":"13","subLabel":"","text":"Instagram (URL to your profile)","type":"control_textbox"},{"description":"","name":"linkedinurl","qid":"14","subLabel":"","text":"LinkedIn (URL to your profile)","type":"control_textbox"},null,null,null,null,null,null,null,null,{"description":"","name":"tellMe","qid":"23","subLabel":"","text":"Tell me about yourself: What do you do (career & hobbies), life story, sources of happiness or worry, and anything else you want to say about yourself. Reminder: This is completely confidential (as is the rest of this form).","type":"control_textarea"},{"description":"","name":"photosOf","qid":"24","subLabel":"","text":"Photos of yourself (to help me know you're a real person). Reminder: This is completely confidential (as is the rest of this form).","type":"control_fileupload"},{"name":"input25","qid":"25","text":"For the following &quot;Location&quot; field, you will be asked to list Country, Region\u002FState, and City. If there is a major city (population over 1 million) nearby (less than 30 miles \u002F 50 km), please list that city. If not, then list your city or closest city available in the dropdown menus.","type":"control_text"},{"description":"","name":"doYou","qid":"26","text":"Do you listen to the Lex Fridman Podcast?","type":"control_radio"},null,{"description":"","name":"yourInterest","qid":"28","text":"Your interest in meeting (select ALL that apply). Please be honest. In addition, you can provide more context and details to this in the question at the end of this form.","type":"control_checkbox"},{"name":"input29","qid":"29","text":"","type":"control_text"},null,null,null,null,{"description":"","name":"phoneNumber","qid":"34","subLabel":"","text":"Phone Number (with country code, if not US)","type":"control_textbox"},{"description":"","name":"howDo","qid":"35","text":"How do you prefer to be contacted (select all that apply).","type":"control_checkbox"},{"description":"","name":"whyDo","qid":"36","subLabel":"","text":"Why do you want to chat with me? Anything you want to elaborate on beyond your multi-choice answer to the \"Your interest in meeting\" question above.","type":"control_textarea"},{"description":"","name":"someOf","qid":"37","subLabel":"","text":"Some of your favorite books, movies, songs, video games, etc.","type":"control_textarea"},{"description":"","name":"areYou","qid":"38","text":"Are you willing to travel to me for the chat over coffee?","type":"control_radio"},{"description":"","name":"whatLanguages","qid":"39","subLabel":"","text":"What languages do you speak fluently or conversationally? (Please list English, if you speak English). Separate by commas.","type":"control_textbox"},{"description":"","name":"ageReminder","qid":"40","subLabel":"","text":"Age. Reminder: This is completely confidential (as is the rest of this form).","type":"control_number"},{"description":"","name":"gender","qid":"41","text":"Gender","type":"control_radio"},null,{"description":"","name":"doYou43","qid":"43","text":"Do you have any skills useful in case of zombie apocalypse? (E.g., building a shelter, starting a fire, driving at high speeds away from zombies, etc.)","type":"control_radio"},{"description":"","name":"tellMe44","qid":"44","subLabel":"","text":"Tell me about your ideas & values, what you believe (politically, socially, economically), including opinions you have that most people don't agree with you on.","type":"control_textarea"},{"description":"","name":"listOf","qid":"45","subLabel":"","text":"List of interests - career, personal, and otherwise (i.e. physics, AI, literature, jiu jitsu, space, philosophy, history, etc.). Please keep list brief to highest-interest topics. Separate by commas.","type":"control_textbox"}]);}, 20); 
+</script>
+</head>
+<body>
+<form class="jotform-form" action="https://submit.jotform.com/submit/230415467865159" method="post" enctype="multipart/form-data" name="form_230415467865159" id="230415467865159" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="230415467865159" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" />
+  <div role="main" class="form-all">
+    <style>
+      .form-all:before
+      {
+        background: none;
+      }
+    </style>
+    <ul class="form-section page-section">
+      <li id="cid_1" class="form-input-wide" data-type="control_head">
+        <div class="form-header-group  header-large">
+          <div class="header-text httal htvam">
+            <h1 id="header_1" class="form-header" data-component="header">Coffee with Lex Fridman</h1>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_text" id="id_5">
+        <div id="cid_5" class="form-input-wide" data-layout="full">
+          <div id="text_5" class="form-html" data-component="text" tabindex="0">
+            <p>I'll be traveling a bunch soon, across US and across the World. Along the way, I'd like to meet interesting people from all walks of life, and chat over coffee. So, if you want to chat with me, anywhere in the world, please fill out this form. Further details are provided here.</p>
+            <p><strong>Privacy</strong>: Everything in this form is kept 100% private. I'm asking you to provide name, contact info, etc., and I'll be sure to keep this info private to me (Lex).</p>
+            <p><strong>Info</strong>: Please provide as much detailed info as possible (all relevant fields if possible). It helps me know you're a real human being and someone I can trust. That said, most fields in this form are optional.</p>
+            <p><strong>Goal: </strong>If you know me it's probably obvious, but I should make it explicit: The purpose of this chat is not transactional in any way. With this meeting, I have no interest in money, sex, networking, business partnerships, a pitch for a new big idea you have, etc. I'm simply looking for a genuine human connection, a brief conversation, and to learn more about this beautiful world of ours.</p>
+          </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_7"><label class="form-label form-label-top form-label-auto" id="label_7" for="input_7"> Name<span class="form-required">*</span> </label>
+        <div id="cid_7" class="form-input-wide jf-required" data-layout="half"> <input type="text" id="input_7" name="q7_name" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_7" required="" /> </div>
+      </li>
+      <li class="form-line" data-type="control_email" id="id_8"><label class="form-label form-label-top form-label-auto" id="label_8" for="input_8"> Email </label>
+        <div id="cid_8" class="form-input-wide" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_8" name="q8_email" class="form-textbox validate[Email]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="email" aria-labelledby="label_8 sublabel_input_8" /><label class="form-sub-label" for="input_8" id="sublabel_input_8" style="min-height:13px" aria-hidden="false">example@example.com</label></span> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_12"><label class="form-label form-label-top form-label-auto" id="label_12" for="input_12"> Twitter (URL to your profile) </label>
+        <div id="cid_12" class="form-input-wide" data-layout="half"> <input type="text" id="input_12" name="q12_twitterurl" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_12" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_13"><label class="form-label form-label-top form-label-auto" id="label_13" for="input_13"> Instagram (URL to your profile) </label>
+        <div id="cid_13" class="form-input-wide" data-layout="half"> <input type="text" id="input_13" name="q13_instagramurl" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_13" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_14"><label class="form-label form-label-top form-label-auto" id="label_14" for="input_14"> LinkedIn (URL to your profile) </label>
+        <div id="cid_14" class="form-input-wide" data-layout="half"> <input type="text" id="input_14" name="q14_linkedinurl" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_14" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_34"><label class="form-label form-label-top form-label-auto" id="label_34" for="input_34"> Phone Number (with country code, if not US) </label>
+        <div id="cid_34" class="form-input-wide" data-layout="half"> <input type="text" id="input_34" name="q34_phoneNumber" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_34" /> </div>
+      </li>
+      <li class="form-line" data-type="control_checkbox" id="id_35"><label class="form-label form-label-top form-label-auto" id="label_35" for="input_35"> How do you prefer to be contacted (select all that apply). </label>
+        <div id="cid_35" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_35" data-component="checkbox"><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_0" name="q35_howDo[]" value="Email" /><label id="label_input_35_0" for="input_35_0">Email</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_1" name="q35_howDo[]" value="Phone call" /><label id="label_input_35_1" for="input_35_1">Phone call</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_2" name="q35_howDo[]" value="WhatsApp" /><label id="label_input_35_2" for="input_35_2">WhatsApp</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_3" name="q35_howDo[]" value="Telegram" /><label id="label_input_35_3" for="input_35_3">Telegram</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_4" name="q35_howDo[]" value="Instagram" /><label id="label_input_35_4" for="input_35_4">Instagram</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_35" class="form-checkbox" id="input_35_5" name="q35_howDo[]" value="Twitter" /><label id="label_input_35_5" for="input_35_5">Twitter</label></span><span class="form-checkbox-item formCheckboxOther" style="clear:left"><input type="checkbox" class="form-checkbox-other form-checkbox" name="q35_howDo[other]" id="other_35" value="other" tabindex="0" aria-label="Other" /><label id="label_other_35" style="text-indent:0" for="other_35">Other</label><span id="other_35_input" class="other-input-container" style="display:none"><input type="text" class="form-checkbox-other-input form-textbox" name="q35_howDo[other]" data-otherhint="Other" size="15" id="input_35" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_checkbox" id="id_28"><label class="form-label form-label-top form-label-auto" id="label_28" for="input_28"> Your interest in meeting (select ALL that apply). Please be honest. In addition, you can provide more context and details to this in the question at the end of this form. </label>
+        <div id="cid_28" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_28" data-component="checkbox"><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_0" name="q28_yourInterest[]" value="Just meet &amp; chat about life" /><label id="label_input_28_0" for="input_28_0">Just meet & chat about life</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_1" name="q28_yourInterest[]" value="Technical discussion (AI, robotics, physics, biology, etc.)" /><label id="label_input_28_1" for="input_28_1">Technical discussion (AI, robotics, physics, biology, etc.)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_2" name="q28_yourInterest[]" value="Philosophical discussion (including history, art, literature, etc.)" /><label id="label_input_28_2" for="input_28_2">Philosophical discussion (including history, art, literature, etc.)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_3" name="q28_yourInterest[]" value="Guest on Lex Fridman Podcast (potential)" /><label id="label_input_28_3" for="input_28_3">Guest on Lex Fridman Podcast (potential)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_4" name="q28_yourInterest[]" value="Friendship (potential)" /><label id="label_input_28_4" for="input_28_4">Friendship (potential)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_5" name="q28_yourInterest[]" value="Romantic (potential)" /><label id="label_input_28_5" for="input_28_5">Romantic (potential)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_6" name="q28_yourInterest[]" value="Same-day marriage (preferably in Las Vegas)" /><label id="label_input_28_6" for="input_28_6">Same-day marriage (preferably in Las Vegas)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_7" name="q28_yourInterest[]" value="Grappling match (preferably to the death)" /><label id="label_input_28_7" for="input_28_7">Grappling match (preferably to the death)</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_8" name="q28_yourInterest[]" value="Pitch a business idea" /><label id="label_input_28_8" for="input_28_8">Pitch a business idea</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_9" name="q28_yourInterest[]" value="Want to work with me" /><label id="label_input_28_9" for="input_28_9">Want to work with me</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_10" name="q28_yourInterest[]" value="Want to travel along with me" /><label id="label_input_28_10" for="input_28_10">Want to travel along with me</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_28" class="form-checkbox" id="input_28_11" name="q28_yourInterest[]" value="Be a local tour guide to cool places around where you live" /><label id="label_input_28_11" for="input_28_11">Be a local tour guide to cool places around where you live</label></span><span class="form-checkbox-item formCheckboxOther" style="clear:left"><input type="checkbox" class="form-checkbox-other form-checkbox" name="q28_yourInterest[other]" id="other_28" value="other" tabindex="0" aria-label="Other" /><label id="label_other_28" style="text-indent:0" for="other_28">Other</label><span id="other_28_input" class="other-input-container" style="display:none"><input type="text" class="form-checkbox-other-input form-textbox" name="q28_yourInterest[other]" data-otherhint="Other" size="15" id="input_28" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_text" id="id_25">
+        <div id="cid_25" class="form-input-wide" data-layout="full">
+          <div id="text_25" class="form-html" data-component="text" tabindex="0">
+            <p>For the following &quot;Location&quot; field, you will be asked to list Country, Region/State, and City. If there is a major city (population over 1 million) nearby (less than 30 miles / 50 km), please list that city. If not, then list your city or closest city available in the dropdown menus.</p>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_widget" id="id_3"><label class="form-label form-label-top form-label-auto" id="label_3" for="input_3"> Location - Country, Region, City </label>
+        <div id="cid_3" class="form-input-wide" data-layout="full">
+          <div data-widget-name="All States and Cities" style="width:100%;text-align:Left;overflow-x:auto" data-component="widget-field"><iframe data-client-id="5332f3a44c4b0bf81a000005" title="All States and Cities" frameBorder="0" scrolling="no" allowtransparency="true" allow="geolocation; microphone; camera; autoplay; encrypted-media; fullscreen" data-type="iframe" class="custom-field-frame" id="customFieldFrame_3" src="" style="max-width:450px;border:none;width:100%;height:150px" data-width="450" data-height="150"></iframe>
+            <div class="widget-inputs-wrapper"><input type="hidden" id="input_3" class="form-hidden form-widget  " name="q3_typeA" value="" /><input type="hidden" id="widget_settings_3" class="form-hidden form-widget-settings" value="%5B%5D" data-version="2" /></div>
+            <script type="text/javascript">
+              setTimeout(function()
+              {
+                var _cFieldFrame = document.getElementById("customFieldFrame_3");
+                if (_cFieldFrame)
+                {
+                  _cFieldFrame.onload = function()
+                  {
+                    if (typeof widgetFrameLoaded !== 'undefined')
+                    {
+                      widgetFrameLoaded(3,
+                      {
+                        "formID": 230415467865159
+                      })
+                    }
+                  };
+                  _cFieldFrame.src = "//data-widgets.jotform.io/allCities/?qid=3&ref=" +
+                    encodeURIComponent(window.location.protocol + "//" + window.location.host) + '' + '' + '' +
+                    '&injectCSS=' + encodeURIComponent(window.location.search.indexOf("ndt=1") > -1);
+                  _cFieldFrame.addClassName("custom-field-frame-rendered");
+                }
+              }, 0);
+            </script>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_10"><label class="form-label form-label-top form-label-auto" id="label_10" for="input_10"> Address of the public place where we can have coffee/lunch/dinner or just chat (such that I can paste it into Google Maps and it'll show me exact location) </label>
+        <div id="cid_10" class="form-input-wide" data-layout="full"> <textarea id="input_10" class="form-textarea" name="q10_addressOf" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_10"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_radio" id="id_38"><label class="form-label form-label-top form-label-auto" id="label_38" for="input_38"> Are you willing to travel to me for the chat over coffee? </label>
+        <div id="cid_38" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_38" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_0" name="q38_areYou" value="Yes, around the city I listed" /><label id="label_input_38_0" for="input_38_0">Yes, around the city I listed</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_1" name="q38_areYou" value="Yes, around the country I listed" /><label id="label_input_38_1" for="input_38_1">Yes, around the country I listed</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_2" name="q38_areYou" value="Yes, but not more than 1,000 miles" /><label id="label_input_38_2" for="input_38_2">Yes, but not more than 1,000 miles</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_3" name="q38_areYou" value="Yes, anywhere in the world (reasonably)" /><label id="label_input_38_3" for="input_38_3">Yes, anywhere in the world (reasonably)</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_4" name="q38_areYou" value="No, not really" /><label id="label_input_38_4" for="input_38_4">No, not really</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_38" class="form-radio" id="input_38_5" name="q38_areYou" value="Not sure" /><label id="label_input_38_5" for="input_38_5">Not sure</label></span><span class="form-radio-item formRadioOther" style="clear:left"><input type="radio" class="form-radio-other form-radio" name="q38_areYou" id="other_38" value="other" tabindex="0" aria-label="Other" /><label id="label_other_38" style="text-indent:0" for="other_38">Other</label><span id="other_38_input" class="other-input-container" style="display:none"><input type="text" class="form-radio-other-input form-textbox" name="q38_areYou[other]" data-otherhint="Other" size="15" id="input_38" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_fileupload" id="id_24"><label class="form-label form-label-top form-label-auto" id="label_24" for="input_24"> Photos of yourself (to help me know you're a real person). Reminder: This is completely confidential (as is the rest of this form). </label>
+        <div id="cid_24" class="form-input-wide" data-layout="full">
+          <div class="jfQuestion-fields" data-wrapper-react="true">
+            <div class="jfField isFilled">
+              <div class="jfUpload-wrapper">
+                <div class="jfUpload-container">
+                  <div class="jfUpload-text-container">
+                    <div class="jfUpload-icon forDesktop"><span class="iconSvg  dhtupload ">function SvgDhtupload2(props) {
+                        return /* @__PURE__ */ react.createElement("svg", dhtupload_svg_extends({
+                        width: 54,
+                        height: 47,
+                        xmlns: "http://www.w3.org/2000/svg"
+                        }, props), dhtupload_svg_path || (dhtupload_svg_path = /* @__PURE__ */ react.createElement("path", {
+                        d: "M40.213 10.172c1.897.21 3.68.738 5.35 1.58a15.748 15.748 0 0 1 4.374 3.242 15.065 15.065 0 0 1 2.951 4.533c.72 1.704 1.08 3.522 1.08 5.455 0 1.827-.28 3.654-.843 5.48-.562 1.828-1.379 3.47-2.45 4.929A13.39 13.39 0 0 1 46.669 39c-1.599.948-3.452 1.458-5.56 1.528H37.26a1.62 1.62 0 0 1-1.185-.5 1.62 1.62 0 0 1-.501-1.186c0-.457.167-.852.5-1.186.334-.334.73-.5 1.186-.5h3.848c1.44 0 2.75-.37 3.926-1.108a10.851 10.851 0 0 0 3.03-2.846 13.53 13.53 0 0 0 1.95-3.9 14.23 14.23 0 0 0 .686-4.321c0-1.582-.316-3.066-.949-4.454a11.623 11.623 0 0 0-2.582-3.636 12.857 12.857 0 0 0-3.742-2.478 11.054 11.054 0 0 0-4.48-.922l-1.212-.053-.37-1.159c-.878-2.81-2.292-4.998-4.242-6.562-1.95-1.563-4.594-2.345-7.932-2.345-2.108 0-4.005.36-5.692 1.08-1.686.72-3.136 1.722-4.348 3.005-1.212 1.282-2.143 2.81-2.793 4.585-.65 1.774-.975 3.68-.975 5.718h.053l.105 1.581-1.528.264c-1.863.316-3.444 1.317-4.744 3.004-1.3 1.686-1.95 3.584-1.95 5.692 0 2.39.8 4.462 2.398 6.219 1.599 1.757 3.488 2.635 5.666 2.635h4.849c.492 0 .896.167 1.212.5.316.335.474.73.474 1.187 0 .456-.158.852-.474 1.185-.316.334-.72.501-1.212.501h-4.849a10.08 10.08 0 0 1-4.374-.975 11.673 11.673 0 0 1-3.61-2.661 13.173 13.173 0 0 1-2.478-3.9A12.073 12.073 0 0 1 0 28.301c0-2.706.755-5.148 2.266-7.326 1.511-2.178 3.444-3.636 5.798-4.374.14-2.354.658-4.542 1.554-6.562.896-2.02 2.091-3.777 3.584-5.27 1.494-1.494 3.25-2.662 5.27-3.505C20.493.422 22.733 0 25.193 0c1.898 0 3.637.237 5.218.711 1.581.475 3.004 1.151 4.269 2.03a13.518 13.518 0 0 1 3.268 3.215 18.628 18.628 0 0 1 2.266 4.216Zm-11.964 13.44 6.22 6.85c.245.247.368.537.368.87 0 .334-.123.642-.369.923l-.421.263c-.211.246-.484.343-.817.29a1.544 1.544 0 0 1-.87-.448l-3.69-4.11v16.97c0 .492-.166.896-.5 1.212-.334.316-.729.474-1.186.474-.492 0-.896-.158-1.212-.474-.316-.316-.474-.72-.474-1.212V28.25l-3.584 4.005a1.544 1.544 0 0 1-.87.448.959.959 0 0 1-.87-.29l-.42-.264c-.247-.28-.37-.588-.37-.922 0-.334.123-.624.37-.87l6.113-6.746v-.052l.421-.422a.804.804 0 0 1 .396-.29c.158-.053.307-.079.448-.079.175 0 .333.026.474.079.14.053.281.15.422.29l.421.422v.052Z",
+                        fill: "none"
+                        })));
+                        }</span></div>
+                  </div>
+                  <div class="jfUpload-button-container">
+                    <div class="jfUpload-button" aria-hidden="true" tabindex="0" style="display:none" data-version="v2">Browse Files<div class="jfUpload-heading forDesktop">Drag and drop files here</div>
+                      <div class="jfUpload-heading forMobile">Choose a file</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jfUpload-files-container">
+                  <div class="validate[multipleUpload]"><input type="file" id="input_24" name="q24_photosOf[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, zip, wma, mpg, avi, jpg, jpeg, png, gif, tiff, bmp, tif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" aria-label="Browse Files" /></div>
+                </div>
+              </div>
+              <div data-wrapper-react="true"></div>
+            </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_radio" id="id_41"><label class="form-label form-label-top form-label-auto" id="label_41" for="input_41"> Gender </label>
+        <div id="cid_41" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_41" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_41" class="form-radio" id="input_41_0" name="q41_gender" value="Male" /><label id="label_input_41_0" for="input_41_0">Male</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_41" class="form-radio" id="input_41_1" name="q41_gender" value="Female" /><label id="label_input_41_1" for="input_41_1">Female</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_41" class="form-radio" id="input_41_2" name="q41_gender" value="Other" /><label id="label_input_41_2" for="input_41_2">Other</label></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_number" id="id_40"><label class="form-label form-label-top form-label-auto" id="label_40" for="input_40"> Age. Reminder: This is completely confidential (as is the rest of this form). </label>
+        <div id="cid_40" class="form-input-wide" data-layout="half"> <input type="number" id="input_40" name="q40_ageReminder" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="number" aria-labelledby="label_40" step="any" /> </div>
+      </li>
+      <li class="form-line" data-type="control_radio" id="id_43"><label class="form-label form-label-top form-label-auto" id="label_43" for="input_43"> Do you have any skills useful in case of zombie apocalypse? (E.g., building a shelter, starting a fire, driving at high speeds away from zombies, etc.) </label>
+        <div id="cid_43" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_43" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_43" class="form-radio" id="input_43_0" name="q43_doYou43" value="Yes" /><label id="label_input_43_0" for="input_43_0">Yes</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_43" class="form-radio" id="input_43_1" name="q43_doYou43" value="Maybe" /><label id="label_input_43_1" for="input_43_1">Maybe</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_43" class="form-radio" id="input_43_2" name="q43_doYou43" value="No" /><label id="label_input_43_2" for="input_43_2">No</label></span><span class="form-radio-item formRadioOther" style="clear:left"><input type="radio" class="form-radio-other form-radio" name="q43_doYou43" id="other_43" value="other" tabindex="0" aria-label="Other" /><label id="label_other_43" style="text-indent:0" for="other_43">Other</label><span id="other_43_input" class="other-input-container" style="display:none"><input type="text" class="form-radio-other-input form-textbox" name="q43_doYou43[other]" data-otherhint="Other" size="15" id="input_43" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_radio" id="id_26"><label class="form-label form-label-top form-label-auto" id="label_26" for="input_26"> Do you listen to the Lex Fridman Podcast? </label>
+        <div id="cid_26" class="form-input-wide" data-layout="full">
+          <div class="form-single-column" role="group" aria-labelledby="label_26" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_0" name="q26_doYou" value="I listen to every episode, huge fan!" /><label id="label_input_26_0" for="input_26_0">I listen to every episode, huge fan!</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_1" name="q26_doYou" value="I listen to most episodes" /><label id="label_input_26_1" for="input_26_1">I listen to most episodes</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_2" name="q26_doYou" value="I listen to many episodes" /><label id="label_input_26_2" for="input_26_2">I listen to many episodes</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_3" name="q26_doYou" value="I listen occassionally" /><label id="label_input_26_3" for="input_26_3">I listen occassionally</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_4" name="q26_doYou" value="I rarely listen" /><label id="label_input_26_4" for="input_26_4">I rarely listen</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_26" class="form-radio" id="input_26_5" name="q26_doYou" value="I&#x27;ve never listened to it" /><label id="label_input_26_5" for="input_26_5">I've never listened to it</label></span><span class="form-radio-item formRadioOther" style="clear:left"><input type="radio" class="form-radio-other form-radio" name="q26_doYou" id="other_26" value="other" tabindex="0" aria-label="Other" /><label id="label_other_26" style="text-indent:0" for="other_26">Other</label><span id="other_26_input" class="other-input-container" style="display:none"><input type="text" class="form-radio-other-input form-textbox" name="q26_doYou[other]" data-otherhint="Other" size="15" id="input_26" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_39"><label class="form-label form-label-top form-label-auto" id="label_39" for="input_39"> What languages do you speak fluently or conversationally? (Please list English, if you speak English). Separate by commas. </label>
+        <div id="cid_39" class="form-input-wide" data-layout="half"> <input type="text" id="input_39" name="q39_whatLanguages" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_39" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_45"><label class="form-label form-label-top form-label-auto" id="label_45" for="input_45"> List of interests - career, personal, and otherwise (i.e. physics, AI, literature, jiu jitsu, space, philosophy, history, etc.). Please keep list brief to highest-interest topics. Separate by commas. </label>
+        <div id="cid_45" class="form-input-wide" data-layout="half"> <input type="text" id="input_45" name="q45_listOf" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_45" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_23"><label class="form-label form-label-top form-label-auto" id="label_23" for="input_23"> Tell me about yourself: What do you do (career &amp; hobbies), life story, sources of happiness or worry, and anything else you want to say about yourself. Reminder: This is completely confidential (as is the rest of this form). </label>
+        <div id="cid_23" class="form-input-wide" data-layout="full"> <textarea id="input_23" class="form-textarea" name="q23_tellMe" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_23"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_37"><label class="form-label form-label-top form-label-auto" id="label_37" for="input_37"> Some of your favorite books, movies, songs, video games, etc. </label>
+        <div id="cid_37" class="form-input-wide" data-layout="full"> <textarea id="input_37" class="form-textarea" name="q37_someOf" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_37"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_44"><label class="form-label form-label-top form-label-auto" id="label_44" for="input_44"> Tell me about your ideas &amp; values, what you believe (politically, socially, economically), including opinions you have that most people don't agree with you on. </label>
+        <div id="cid_44" class="form-input-wide" data-layout="full"> <textarea id="input_44" class="form-textarea" name="q44_tellMe44" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_44"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_36"><label class="form-label form-label-top form-label-auto" id="label_36" for="input_36"> Why do you want to chat with me? Anything you want to elaborate on beyond your multi-choice answer to the &quot;Your interest in meeting&quot; question above. </label>
+        <div id="cid_36" class="form-input-wide" data-layout="full"> <textarea id="input_36" class="form-textarea" name="q36_whyDo" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_36"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_button" id="id_2">
+        <div id="cid_2" class="form-input-wide" data-layout="full">
+          <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField"><button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">Submit</button></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_text" id="id_29">
+        <div id="cid_29" class="form-input-wide" data-layout="full">
+          <div id="text_29" class="form-html" data-component="text" tabindex="0"></div>
+        </div>
+      </li>
+      <li style="display:none">Should be Empty: <input type="text" name="website" value="" /></li>
+    </ul>
+  </div>
+  <script>
+    JotForm.showJotFormPowered = "0";
+  </script>
+  <script>
+    JotForm.poweredByText = "Powered by Jotform";
+  </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="230415467865159" />
+  <script type="text/javascript">
+    var all_spc = document.querySelectorAll("form[id='230415467865159'] .si" + "mple" + "_spc");
+    for (var i = 0; i < all_spc.length; i++)
+    {
+      all_spc[i].value = "230415467865159-230415467865159";
+    }
+  </script>
+</form></body>
+</html><script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.39644"></script>
+<script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.39644"></script>
