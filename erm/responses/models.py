@@ -4,40 +4,30 @@ from django.db import models
 User = get_user_model()
 
 
-class Company(models.Model):
-    name = models.CharField("Название", max_length=200)
-    description = models.TextField("Описание", null=True, blank=True)
+class Employer(models.Model):
+    name = models.CharField('Название', max_length=100)
+    website = models.URLField('Сайт', null=True, blank=True)  # null - поле может быть пустым в БД; blank - поле может быть пустым в форме.
 
     def __str__(self):
-        return f"{self.name}"
+        return self.name
 
 
 class Position(models.Model):
     position = models.CharField(
-        "Название позиции в вакансии", max_length=200, default="SOME POSITION"
-    )
-    description = models.TextField("Описание", null=True, blank=True)
+        'Название позиции в вакансии', max_length=100)
 
     def __str__(self):
-        return f"{self.position}"
+        return self.position
 
 
-class CV(models.Model):
-    version = models.CharField(
-        "Версия резюме",
-        max_length=200,
-        default="SOME VERSION"
-    )
-    # ссылка на сохранённый где-то в БД файл резюме
-
-    def __str__(self):
-        return f"{self.version}"
-
-
-class Template(models.Model):
-    name = models.CharField("Шаблон резюме", max_length=200)
-    # ссылка на сохранённый где-то в БД файл шаблона
-    # изображение шаблона в миниатюре
+class EmployerContact(models.Model):
+    first_name = models.CharField('Имя', max_length=100)
+    second_name = models.CharField('Фамилия', max_length=100)
+    role = models.CharField('Роль (должность)', max_length=100)
+    email = models.EmailField('email', null=True, blank=True)
+    linkedin = models.CharField('Аккаунт в LinkedIn', max_length=100, null=True, blank=True)
+    phone = models.CharField('Телефон', max_length=100, null=True, blank=True)
+    company = models.ForeignKey('Компания', Employer, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f"{self.name}"
