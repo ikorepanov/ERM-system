@@ -1,55 +1,73 @@
 from django.contrib import admin
 
-from .models import Company, Position, CV, Template, Response
+from .models import (Employer, EmployerContact, Position, Response,
+                     ThirdPartyCompany, ThirdPartyContact)
 
 
-class ResponseAdmin(admin.ModelAdmin):
+class EmployerAdmin(admin.ModelAdmin):
     list_display = (
-        "pk",
-        "resp_date",
-        "company",
-        "position",
-        "cv",
-        "template",
-        "letter",
-    )
-
-
-#    empty_value_display = '-пусто-'
-
-
-class CompanyAdmin(admin.ModelAdmin):
-    list_display = (
-        "pk",
-        "name",
-        "description",
+        'pk',
+        'name',
     )
 
 
 class PositionAdmin(admin.ModelAdmin):
     list_display = (
-        "pk",
-        "position",
-        "description",
+        'pk',
+        'position',
     )
 
 
-class CVAdmin(admin.ModelAdmin):
+class EmployerContactAdmin(admin.ModelAdmin):
     list_display = (
-        "pk",
-        "version",
+        'pk',
+        'first_name',
+        'last_name',
+        'role',
+        'email',
+        'linkedin',
+        'phone',
+        'company',
     )
 
 
-class TemplateAdmin(admin.ModelAdmin):
+class ThirdPartyCompanyAdmin(admin.ModelAdmin):
     list_display = (
-        "pk",
-        "name",
+        'pk',
+        'name',
+        'website',
     )
 
 
-admin.site.register(Company, CompanyAdmin)
+class ThirdPartyContactAdmin(admin.ModelAdmin):
+    list_display = (
+        'pk',
+        'first_name',
+        'last_name',
+        'role',
+        'email',
+        'linkedin',
+        'phone',
+        'company',
+    )
+
+
+class ResponseAdmin(admin.ModelAdmin):
+    list_display = (
+        'pk',
+        'user',
+        'date',
+        'employer',
+        'position',
+        'employercontact',
+        'thirdpartycontact',
+        'status',
+    )
+
+
+admin.site.register(Employer, EmployerAdmin)
 admin.site.register(Position, PositionAdmin)
-admin.site.register(CV, CVAdmin)
-admin.site.register(Template, TemplateAdmin)
-admin.site.register(Response, ResponseAdmin)  # Если убрать ResponseAdmin - в админке отклики будут отображаться списком объектов: одной колонкой, с именем, которое вызывает у объектов метод __str__;
+admin.site.register(EmployerContact, EmployerContactAdmin)
+admin.site.register(ThirdPartyCompany, ThirdPartyCompanyAdmin)
+admin.site.register(ThirdPartyContact, ThirdPartyContactAdmin)
+admin.site.register(Response, ResponseAdmin)
