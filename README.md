@@ -19,7 +19,9 @@
 
 ~~2. Create a Django project and set up the virtual environment to isolate the dependencies.~~
 
-3. Create the database schema for the app using Django's ORM. Define necessary models.
+~~3. Create the database schema for the app using Django's ORM. Define necessary models.~~
+
+![Alt text](images/ERM-system_ER-diagram_ver_2.jpg)
 
 4. Implement the authentication system.
 
