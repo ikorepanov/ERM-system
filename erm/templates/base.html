@@ -2,19 +2,20 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="{% static 'img/fav/favicon.ico' %}" type="image">
-  <link rel="stylesheet" href="{% static 'css/minimal-table.css' %}" type="text/css">
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  <title>
-    {% block title %}
-    {% endblock %} 
-  </title>
-</head>
-<body>
-  {% include 'includes/header.html' %}
-  {% block content %}{% endblock %} 
-  {% include 'includes/footer.html' %} 
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Employer Relationship Management system for job seekers who intend to land their dream job">
+    <link rel="stylesheet" href="{% static 'css/minimal-table.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>
+      {% block title %}
+      {% endblock %} 
+    </title>
+    <link rel="icon" href="{% static 'img/fav/favicon.ico' %}" type="image">  <!-- NB! Сгенерить фавикон и ссылки для разных браузеров -->
+  </head>
+  <body>
+    {% include 'includes/header.html' %}
+    {% block content %}{% endblock %} 
+    {% include 'includes/footer.html' %} 
+  </body>
 </html>

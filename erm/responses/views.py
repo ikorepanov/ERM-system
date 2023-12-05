@@ -70,3 +70,13 @@ def create_application(request):
     else:
         form = JobApplicationForm()
     return render(request, 'responses/create_application.html', {'form': form})
+
+
+@login_required
+def response_list(request):
+    pass
+
+
+@login_required
+def response_detail(request):
+    pass
