@@ -25,7 +25,10 @@
 Каждый отклик - новая итерация. Ей соответствует отдельная страница с метриками. 
 На главной странице представлена общая таблица; есть возможность провалиться в каждую итерацию.
 
-### Автор: Илья Корепанов, ikorepanov@gmail.com
+### Автор:
+
+- Илья Корепанов  
+[![Telegram Badge](https://img.shields.io/badge/Telegram-blue?style=social&logo=Telegram)](https://t.me/number_one_lobster) [![Gmail Badge](https://img.shields.io/badge/Gmail-red?style=social&logo=Gmail)](mailto:ikorepanov.study@gmail.com)   
 
 ### EN:
 *Project concept*
