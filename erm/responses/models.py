@@ -5,6 +5,17 @@ import datetime
 User = get_user_model()
 
 
+class JobApplication(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_applied = models.DateField()
+    company_name = models.CharField(max_length=255)
+    resume = models.FileField(upload_to='resumes/')
+    cover_letter = models.TextField()
+
+    def __str__(self):
+        return self.company_name
+
+
 class Employer(models.Model):
     name = models.CharField(
         max_length=100,

@@ -1,12 +1,14 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 
 from erm.settings import NUMBER_OF_RESULT_ENTRIES
 
 from .models import Response
+from .models import JobApplication
+from .forms import JobApplicationForm
 
 # from django.core.paginator import Paginator
 
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -48,3 +50,23 @@ def response_info(request, pk):
         'response': response,
     }
     return render(request, template, context)
+
+
+@login_required
+def application_list(request):
+    applications = JobApplication.objects.filter(user=request.user)
+    return render(request, 'responses/application_list.html', {'applications': applications})
+
+
+@login_required
+def create_application(request):
+    if request.method == 'POST':
+        form = JobApplicationForm(request.POST, request.FILES)
+        if form.is_valid():
+            application = form.save(commit=False)
+            application.user = request.user
+            application.save()
+            return redirect('application_list')
+    else:
+        form = JobApplicationForm()
+    return render(request, 'responses/create_application.html', {'form': form})
