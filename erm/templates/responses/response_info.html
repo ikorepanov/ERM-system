@@ -5,37 +5,35 @@
 {% endblock %}
 
 {% block content%}
-  <main>
-    <div class="row justify-content-center">
-      <div class="col-md-8 p-5">
-        <div class="card">
-          <p>
-            Content from respond_info about respond {{ response.pk }}
-          </p>
-          <div>
-            <ul class="hr">
-              <li>
-                Дата отклика: {{ response.resp_date|date:"d M Y" }}
-              </li>
-              <li>
-                Компания: {{ response.company }}
-              </li>
-              <li>
-                Позиция: {{ response.position }}
-              </li>
-              <li>
-                Версия резюме: {{ response.cv }}
-              </li>
-              <li>
-                Использовавшийся шаблон: {{ response.template }}
-              </li>
-              <li>
-                Сопроводительное письмо: {{ response.letter }}
-              </li>
-            </ul>
-          </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8 p-5">
+      <div class="card">
+        <p>
+          Content from respond_info about respond {{ response.pk }}
+        </p>
+        <div>
+          <ul class="hr">
+            <li>
+              Дата отклика: {{ response.resp_date|date:"d M Y" }}
+            </li>
+            <li>
+              Компания: {{ response.company }}
+            </li>
+            <li>
+              Позиция: {{ response.position }}
+            </li>
+            <li>
+              Версия резюме: {{ response.cv }}
+            </li>
+            <li>
+              Использовавшийся шаблон: {{ response.template }}
+            </li>
+            <li>
+              Сопроводительное письмо: {{ response.letter }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </main>
+  </div>
 {% endblock %}

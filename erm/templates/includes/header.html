@@ -1,82 +1,80 @@
-<header>
-  <nav class="navbar navbar-light" style="background-color: navy">
-    <div class="container">
-      <div>
-        <a href="{% url 'responses:index' %}">The journey of a thousand miles begins with a single... response</a>
-      </div>
-      <ul>
-        <li>
-          <a href="{% url 'responses:about' %}">About</a>
-        </li>
-        <li>
-          <a href="{% url 'responses:contact' %}">Contact</a>
-        </li>
-      </ul>
+<nav class="navbar navbar-light" style="background-color: navy">
+  <div class="container">
     <div>
-  </nav>
+      <a href="{% url 'responses:index' %}">The journey of a thousand miles begins with a single... response</a>
+    </div>
+    <ul>
+      <li>
+        <a href="{% url 'responses:about' %}">About</a>
+      </li>
+      <li>
+        <a href="{% url 'responses:contact' %}">Contact</a>
+      </li>
+    </ul>
+  <div>
+</nav>
 
 {% load static %}
 
-  <nav class="navbar navbar-light" style="background-color: lightskyblue">
-    <div class="container">
-      <a class="navbar-brand" href="{% url 'responses:index' %}">
-        <img src="{% static 'img/fav/favicon.ico' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-        <span style="color:red">Ya</span>tube
-      </a>
-        <ul class="nav nav-pills">
-          {% with request.resolver_match.view_name as view_name %}
-            {% if user.is_authenticated %}
-  
-            {% comment %} <li class="nav-item"> 
-              <a class="nav-link {% if view_name == 'posts:post_create' %}active{% endif %}" 
-                href="{% url 'posts:post_create' %}"
-              >
-                Новая запись
-              </a>
-            </li> {% endcomment %}
-            
-            <li class="nav-item"> 
-              <a class="nav-link link-light {% if view_name == 'users:password_change_form' %}active{% endif %}" 
-                href="{% url 'users:password_change_form' %}"
-              >
-                Изменить пароль
-              </a>
-            </li>
-            
-            <li class="nav-item"> 
-              <a class="nav-link link-light {% if view_name == 'users:logout' %}active{% endif %}" 
-                href="{% url 'users:logout' %}"
-              >
-                Выйти
-              </a>
-            </li>
-            
-            <li>
-              Пользователь: {{ user.username }}
-            </li>
-            
-            {% else %}
-            
-            <li class="nav-item"> 
-              <a class="nav-link link-light {% if view_name == 'users:login' %}active{% endif %}" 
-                href="{% url 'users:login' %}"
-              >
-                Login
-              </a>
-            </li>
-            
-            <li class="nav-item"> 
-              <a class="nav-link link-light {% if view_name == 'users:signup' %}active{% endif %}" 
-                href="{% url 'users:signup' %}"
-              >
-                Signup
-              </a>
-            </li>
-            
-            {% endif %}
-          {% endwith %}
-        </ul>
-      </div>
+<nav class="navbar navbar-light" style="background-color: lightskyblue">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'responses:index' %}">
+      <img src="{% static 'img/fav/favicon.ico' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+      <span style="color:red">Ya</span>tube
+    </a>
+      <ul class="nav nav-pills">
+        {% with request.resolver_match.view_name as view_name %}
+          {% if user.is_authenticated %}
+
+          {% comment %} <li class="nav-item"> 
+            <a class="nav-link {% if view_name == 'posts:post_create' %}active{% endif %}" 
+              href="{% url 'posts:post_create' %}"
+            >
+              Новая запись
+            </a>
+          </li> {% endcomment %}
+          
+          <li class="nav-item"> 
+            <a class="nav-link link-light {% if view_name == 'users:password_change_form' %}active{% endif %}" 
+              href="{% url 'users:password_change_form' %}"
+            >
+              Изменить пароль
+            </a>
+          </li>
+          
+          <li class="nav-item"> 
+            <a class="nav-link link-light {% if view_name == 'users:logout' %}active{% endif %}" 
+              href="{% url 'users:logout' %}"
+            >
+              Выйти
+            </a>
+          </li>
+          
+          <li>
+            Пользователь: {{ user.username }}
+          </li>
+          
+          {% else %}
+          
+          <li class="nav-item"> 
+            <a class="nav-link link-light {% if view_name == 'users:login' %}active{% endif %}" 
+              href="{% url 'users:login' %}"
+            >
+              Login
+            </a>
+          </li>
+          
+          <li class="nav-item"> 
+            <a class="nav-link link-light {% if view_name == 'users:signup' %}active{% endif %}" 
+              href="{% url 'users:signup' %}"
+            >
+              Signup
+            </a>
+          </li>
+          
+          {% endif %}
+        {% endwith %}
+      </ul>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>

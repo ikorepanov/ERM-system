@@ -9,13 +9,22 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>
       {% block title %}
+        Some title
       {% endblock %} 
     </title>
     <link rel="icon" href="{% static 'img/fav/favicon.ico' %}" type="image">  <!-- NB! Сгенерить фавикон и ссылки для разных браузеров -->
   </head>
   <body>
-    {% include 'includes/header.html' %}
-    {% block content %}{% endblock %} 
-    {% include 'includes/footer.html' %} 
+    <header>
+      {% include 'includes/header.html' %}
+    </header>
+    <main>
+      {% block content %}
+        Some content
+      {% endblock %}
+    </main>
+    <footer class="border-top text-center py-3">
+      {% include 'includes/footer.html' %}
+    </footer>
   </body>
 </html>
