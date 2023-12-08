@@ -13,8 +13,10 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     responses = Response.objects.all()[:NUMBER_OF_RESULT_ENTRIES]
+    title = 'Ваши отклики'
     context = {
-        'responses': responses
+        'title': title,
+        'responses': responses,
     }
     return render(request, 'responses/index.html', context)
 
@@ -34,13 +36,19 @@ def index(request):
 
 
 def about(request):
-    template = 'responses/about.html'
-    return render(request, template)
+    title = 'Об авторе проекта'
+    context = {
+        'title': title,
+    }
+    return render(request, 'responses/about.html', context)
 
 
 def contact(request):
-    template = 'responses/contact.html'
-    return render(request, template)
+    title = 'Контакты'
+    context = {
+        'title': title,
+    }
+    return render(request, 'responses/contact.html', context)
 
 
 def response_info(request, pk):
