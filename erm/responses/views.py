@@ -88,3 +88,7 @@ def response_list(request):
 @login_required
 def response_detail(request):
     pass
+
+@login_required
+def application_detail(request):
+    pass
