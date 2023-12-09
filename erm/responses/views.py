@@ -82,12 +82,27 @@ def create_application(request):
 
 @login_required
 def response_list(request):
-    pass
+    title = 'Мои отклики'
+    user = request.user
+    responses = user.user_responses.order_by('-date')
+    # responses = Response.objects.order_by('-date')
+    context = {
+        'title': title,
+        'responses': responses,
+    }
+    return render(request, 'responses/response_list.html', context)
 
 
 @login_required
-def response_detail(request):
-    pass
+def response_detail(request, pk):
+    title = f'Отклик №{pk}'
+    response = get_object_or_404(Response, pk=pk)
+    context = {
+        'title': title,
+        'response': response,
+    }
+    return render(request, 'responses/response_detail.html', context)
+
 
 @login_required
 def application_detail(request):

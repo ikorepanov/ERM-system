@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content%}
+  <div class="row justify-content-center">
+    <div class="col-md-8 p-5">
+      <div class="card">
+        <h1>
+          Отклик {{ response.pk }}
+        </h1>
+        <ul>
+          <li>
+            {{ response.user }}
+          </li>
+          <li>
+            {{ response.date }}
+          </li>
+          <li>
+            {{ response.employer }}  
+          </li>
+          <li>
+            {{ response.position }}
+          </li>
+          <li>
+            {{ response.employercontact }}
+          </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

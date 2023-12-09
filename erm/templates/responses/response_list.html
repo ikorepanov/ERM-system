@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content%}
+  <div class="row justify-content-center">
+    <div class="col-md-8 p-5">
+      <div class="card">
+        <ol>
+          {% for response in responses %}
+            <li>
+              <ul>
+                <li>
+                  {{ response.user }}
+                </li>
+                <li>
+                  {{ response.date }}
+                </li>
+                <li>
+                  {{ response.employer }}  
+                </li>
+                <li>
+                  {{ response.position }}
+                </li>
+                <li>
+                  {{ response.employercontact }}
+                </li>
+                <button type="button" class="btn btn-link">
+                  <a href="{% url 'responses:responses_detail' response.pk %}">
+                    Подробнее
+                  </a>
+                </button>
+              </ul>
+            </li>
+          {% empty %}
+            <p>
+              У вас пока нет ни одного отклика. Пора это исправить!
+            </p>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+{% endblock %}
