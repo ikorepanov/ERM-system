@@ -27,13 +27,8 @@
                 <li>
                   {{ response.employercontact }}
                 </li>
-                <button type="button" class="btn btn-link">
-                  <a href="{% url 'responses:responses_detail' response.pk %}">
-                    Подробнее
-                  </a>
-                </button>
-                <a href="https://www.example.com">
-                  <button>Click me</button>
+                <a href="{% url 'responses:responses_detail' response.pk %}">
+                  <button type="button" class="btn btn-info">Подробнее</button>
                 </a>
               </ul>
             </li>
