@@ -10,8 +10,6 @@ from .forms import JobApplicationForm
 
 from django.contrib.auth.decorators import login_required
 
-import time
-
 def index(request):
     responses = Response.objects.all()[:NUMBER_OF_RESULT_ENTRIES]
     title = 'Ваши отклики'
@@ -83,18 +81,8 @@ def create_application(request):
 
 @login_required
 def response_list(request):
-    start_time = time.time()
-    print('Program has just started')
     title = 'Мои отклики'
-    # responses = Response.objects.order_by('-date')  # Case 1: Basic Query
-    # user = request.user  # Case 2: Filtered Query on User
-    # responses = user.user_responses.order_by('-date')
-    # responses = (Response.objects.select_related('user')  # Case 3: select_related Query
-    #                              .select_related('employer')
-    #                              .select_related('position')
-    #                              .select_related('employercontact')
-    #                              .all())
-    responses = (Response.objects.prefetch_related('user')  # Case 4: prefetch_related Query
+    responses = (Response.objects.prefetch_related('user')
                                  .prefetch_related('employer')
                                  .prefetch_related('position')
                                  .prefetch_related('employercontact')
@@ -103,9 +91,6 @@ def response_list(request):
         'title': title,
         'responses': responses,
     }
-    end_time = time.time()
-    print('Program has just finished')
-    print(f"Case 1 Execution Time: {(end_time - start_time)} seconds")
     return render(request, 'responses/response_list.html', context)
 
 
