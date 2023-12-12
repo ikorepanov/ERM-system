@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content%}
+  <div class="row justify-content-center">
+    <div class="col-md-8 p-5">
+      <div class="card">
+        <!-- Content from create_response -->
+        <form method="post" action="{% url 'responses:create_response' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Отправить">
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

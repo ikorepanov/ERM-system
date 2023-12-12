@@ -10,12 +10,18 @@ from .forms import JobApplicationForm
 
 from django.contrib.auth.decorators import login_required
 
+from django.views.generic.edit import CreateView
+from .forms import ResponseForm
+
+from django.urls import reverse_lazy
+
+
 def index(request):
-    responses = Response.objects.all()[:NUMBER_OF_RESULT_ENTRIES]
+    # responses = Response.objects.all()[:NUMBER_OF_RESULT_ENTRIES]
     title = 'Ваши отклики'
     context = {
         'title': title,
-        'responses': responses,
+        # 'responses': responses,
     }
     return render(request, 'responses/index.html', context)
 
@@ -50,15 +56,6 @@ def contact(request):
     return render(request, 'responses/contact.html', context)
 
 
-def response_info(request, pk):
-    response = get_object_or_404(Response, pk=pk)
-    template = 'responses/response_info.html'
-    context = {
-        'response': response,
-    }
-    return render(request, template, context)
-
-
 @login_required
 def application_list(request):
     applications = JobApplication.objects.filter(user=request.user)
@@ -86,7 +83,9 @@ def response_list(request):
                                                    'employer',
                                                    'position',
                                                    'employercontact')
-                                 .all())
+                                 .all()
+                                #  .order_by('-date')[:2])
+                                 .order_by('-date'))
     context = {
         'title': title,
         'responses': responses,
@@ -108,3 +107,18 @@ def response_detail(request, pk):
 @login_required
 def application_detail(request):
     pass
+
+
+@login_required
+def create_response(request):
+    title = 'Создать отклик'
+    context = {
+        'title': title,
+    }
+    return render(request, 'responses/create_response.html', context)
+
+
+class ResponseView(CreateView):
+    form_class = ResponseForm
+    template_name = 'responses/create_response.html'
+    success_url = reverse_lazy('responses:response_list')
