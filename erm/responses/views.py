@@ -82,10 +82,10 @@ def create_application(request):
 @login_required
 def response_list(request):
     title = 'Мои отклики'
-    responses = (Response.objects.prefetch_related('user')
-                                 .prefetch_related('employer')
-                                 .prefetch_related('position')
-                                 .prefetch_related('employercontact')
+    responses = (Response.objects.prefetch_related('user',
+                                                   'employer',
+                                                   'position',
+                                                   'employercontact')
                                  .all())
     context = {
         'title': title,
