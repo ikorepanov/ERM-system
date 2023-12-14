@@ -17,7 +17,11 @@
 
 При отправке резюме - фиксируется дата отправки, компания, позиция, версия резюме, использованный шаблон, текст сопроводительного письма, был ли отклик, было ли тестовое (если да, то ссылка на репозиторий с решением), было ли интервью (созвон, - онлайн, - оффлайн), был ли оффер. С кем общались (ФИО, контакты).
 
-Возможные сценарии использования: ⁃ Изучена новая технология, обновлено резюме - отправляем обновлённое резюме всем, кому до этого отправлялась предыдущая версия; ⁃ После неудачного интервью - проведена работа над ошибками; отправляется обновлённое резюме, сопроводительное письмо; ⁃ В портфолио добавлен новый проект - рассылка резюме всем, кто есть в базе с информированием о своём достижении; ⁃ Фиксируются предпринятые усилия по поиску работы.
+Возможные сценарии использования:
+⁃ Изучена новая технология, обновлено резюме - отправляем обновлённое резюме всем, кому до этого отправлялась предыдущая версия;
+⁃ После неудачного интервью - проведена работа над ошибками; отправляется обновлённое резюме, сопроводительное письмо;
+⁃ В портфолио добавлен новый проект - рассылка резюме всем, кто есть в базе с информированием о своём достижении;
+⁃ Фиксируются предпринятые усилия по поиску работы.
 
 Использование сайта помогает реализовать так называемый системный подход при поиске первой работы и при дальнейших поисках (когда появляется желание и/или необходимость сменить работу).
 
@@ -49,7 +53,11 @@ Each database entity is a separate iteration of interaction with a potential emp
 
 When sending a resume, the date of sending, company, position, version of the resume, template used, text of the cover letter, whether there was a response, whether there was a test (if yes, then a link to the repository with the solution), whether there was an interview (phoned, - online, - offline), whether there was an offer. Who did you communicate with (name, contacts).
 
-Possible use cases: ⁃ New technology explored, CV updated - we send the updated CV to everyone who previously received the previous version; ⁃ After an unsuccessful interview - work was done on the bugs; send an updated resume, cover letter; ⁃ A new project has been added to the portfolio - sending resumes to everyone who is in the database with information about their achievement; ⁃ Efforts made to find a job are recorded.
+Possible use cases:
+⁃ New technology explored, CV updated - we send the updated CV to everyone who previously received the previous version;
+⁃ After an unsuccessful interview - work was done on the bugs; send an updated resume, cover letter;
+⁃ A new project has been added to the portfolio - sending resumes to everyone who is in the database with information about their achievement;
+⁃ Efforts made to find a job are recorded.
 
 Using the site helps to implement the so-called systematic approach when looking for the first job and in further searches (when there is a desire and / or need to change jobs).
 
