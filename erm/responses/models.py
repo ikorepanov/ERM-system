@@ -5,7 +5,7 @@ User = get_user_model()
 
 
 class Company(models.Model):
-    """Данные о потенциальном работодателе или кадровом агентстве"""
+    """Данные о потенциальном работодателе или кадровом агентстве."""
     name = models.CharField(
         unique=True,
         max_length=100,
@@ -14,8 +14,8 @@ class Company(models.Model):
                    'агентства'),
     )
     website = models.URLField(
-        null=True,
         blank=True,
+        null=True,
         verbose_name='Сайт',
         help_text='Введите название сайта',
     )
@@ -32,11 +32,56 @@ class Company(models.Model):
 
 
 class Contact(models.Model):
-    name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=20, null=True, blank=True)
-    email = models.EmailField(null=True, blank=True)
-    telegram = models.CharField(max_length=100, null=True, blank=True)
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='company_contacts')
+    """
+    Данные о контактном лице в компании-работодателе или кадровом агентстве.
+    """
+    first_name = models.CharField(
+        max_length=100,
+        verbose_name='Имя',
+        help_text='Укажите имя контактного лица',
+    )
+    last_name = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name='Фамилия',
+        help_text='Укажите фамилию контактного лица',
+    )
+    phone = models.CharField(
+        max_length=20,
+        blank=True,
+        null=True,
+        verbose_name='Телефон',
+        help_text='Укажите телефон контактного лица',
+    )
+    email = models.EmailField(
+        verbose_name='E-mail',
+        help_text='Укажите E-mail контактного лица',
+        blank=True,
+        null=True,
+    )
+    telegram = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name='Telegram',
+        help_text='Укажите телеграм контактного лица',
+    )
+    company = models.ForeignKey(
+        Company,
+        blank=True,
+        null=True,
+        verbose_name='Компания',
+        help_text=('Укажите компанию, которую представляет данное контактное'
+                   'лицо'),
+        on_delete=models.SET_NULL,
+        related_name='contacts',
+    )
+
+    def __str__(self):
+        if self.last_name:
+            return f'{self.first_name} {self.last_name}'
+        return f'{self.first_name}'
 
 
 class Response(models.Model):
