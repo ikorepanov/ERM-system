@@ -1,11 +1,11 @@
 # ERM-system
 
-[Ru](#содержание) / [En](table-of-content)
+[Ru](#содержание) / [En](#table-of-content)
 
 ## Содержание
 1. [Описание](#описание)
 2. [Концепция проекта](#конецепция-проекта)
-3. [Author, contacts](#author-contacts)
+3. [Автор, контакты](#автор-контакты)
 
 ## Описание
 Система управления взаимоотношениями с потенциальными *работодателями* для соискателей, которые намерены получить работу своей мечты.
@@ -36,7 +36,7 @@
 ## Table of content
 1. [Project description](#project-description)
 2. [Project concept](#project-concept)
-3. [Автор, контакты](#автор-контакты)
+3. [Author, contacts](#author-contacts)
 
 ## Project description
 *Employer* Relationship Management system for job seekers who intend to land their dream job.
