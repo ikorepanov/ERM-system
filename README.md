@@ -1,9 +1,8 @@
 # ERM-system
 
-[RU](#Ru:)
-[EN](#En:)
+[RU](#cистема_управления:)
+[EN](#employer_relationship:)
 
-## Ru:
 ### Система управления взаимоотношениями с потенциальными *работодателями* для соискателей, которые намерены получить работу своей мечты
 ## Концепция проекта  
 Сайт, который помогает человеку, который ищет работу - отслеживать свои усилия (предпринятые действия) на этом пути.
@@ -28,7 +27,6 @@
 Илья Корепанов
 [![Telegram Badge](https://img.shields.io/badge/Telegram-blue?style=social&logo=Telegram)](https://t.me/number_one_lobster) [![Gmail Badge](https://img.shields.io/badge/Gmail-red?style=social&logo=Gmail)](mailto:ikorepanov.study@gmail.com)  
 
-## En:
 ### *Employer* Relationship Management system for job seekers who intend to land their dream job
 ## Project concept
 Web-site that helps a person who is looking for a job - track their efforts (actions taken) along the way.
