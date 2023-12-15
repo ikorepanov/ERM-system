@@ -95,7 +95,7 @@ class Response(models.Model):
     """Данные об откликах на те или иные вакансии."""
     user = models.ForeignKey(
         User,
-        auto_now_add=True,
+        # auto_now_add=True,
         on_delete=models.CASCADE,
         related_name='responses',
         verbose_name='Автор',
@@ -103,7 +103,7 @@ class Response(models.Model):
     employer = models.ForeignKey(
         Company,
         on_delete=models.CASCADE,
-        related_name='responses',
+        related_name='employer_responses',
         verbose_name='Работодатель',
         help_text='Укажите компанию-работодателя',
     )
@@ -112,7 +112,7 @@ class Response(models.Model):
         on_delete=models.CASCADE,
         blank=True,
         null=True,
-        related_name='responses',
+        related_name='agency_responses',
         verbose_name='Агентство',
         help_text='Укажите компанию - кадровое агентство',
     )
@@ -129,32 +129,32 @@ class Response(models.Model):
     )
     contacts = models.ManyToManyField(
         Contact,
-        blank=True,
-        null=True,
+        # blank=True,
+        # null=True,
         related_name='responses',
         verbose_name='Контакты',
         help_text='Укажите контакты по вакансии',
     )
     cv = models.FileField(
-        upload_to='cv/',
+        # upload_to='cv/',
         blank=True,
         null=True,
         verbose_name='Резюме',
         help_text='Приложите файл резюме',
         )
     letter = models.TextField(
-        upload_to='covering_letters/',
+        # upload_to='covering_letters/',
         blank=True,
         null=True,
         verbose_name='Сопроводительное',
         help_text='Напишите сопроводительное письмо',
     )
     created_at = models.DateTimeField(
-        auto_now_add=True,
+        # auto_now=True,
         verbose_name='Создан',
     )
     updated_at = models.DateTimeField(
-        auto_now=True,
+        # auto_now=True,
         verbose_name='Отредактирован',
     )
     notes = models.TextField(

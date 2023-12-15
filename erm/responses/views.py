@@ -3,15 +3,13 @@ from django.shortcuts import get_object_or_404, render, redirect
 from erm.settings import NUMBER_OF_RESULT_ENTRIES
 
 from .models import Response
-from .models import JobApplication
-from .forms import JobApplicationForm
 
 # from django.core.paginator import Paginator
 
 from django.contrib.auth.decorators import login_required
 
 from django.views.generic.edit import CreateView
-from .forms import ResponseForm
+# from .forms import ResponseForm
 
 from django.urls import reverse_lazy
 
@@ -56,24 +54,24 @@ def contact(request):
     return render(request, 'responses/contact.html', context)
 
 
-@login_required
-def application_list(request):
-    applications = JobApplication.objects.filter(user=request.user)
-    return render(request, 'responses/application_list.html', {'applications': applications})
+# @login_required
+# def application_list(request):
+#     applications = JobApplication.objects.filter(user=request.user)
+#     return render(request, 'responses/application_list.html', {'applications': applications})
 
 
-@login_required
-def create_application(request):
-    if request.method == 'POST':
-        form = JobApplicationForm(request.POST, request.FILES)
-        if form.is_valid():
-            application = form.save(commit=False)
-            application.user = request.user
-            application.save()
-            return redirect('application_list')
-    else:
-        form = JobApplicationForm()
-    return render(request, 'responses/create_application.html', {'form': form})
+# @login_required
+# def create_application(request):
+#     if request.method == 'POST':
+#         form = JobApplicationForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             application = form.save(commit=False)
+#             application.user = request.user
+#             application.save()
+#             return redirect('application_list')
+#     else:
+#         form = JobApplicationForm()
+#     return render(request, 'responses/create_application.html', {'form': form})
 
 
 @login_required
@@ -118,7 +116,7 @@ def create_response(request):
     return render(request, 'responses/create_response.html', context)
 
 
-class ResponseView(CreateView):
-    form_class = ResponseForm
-    template_name = 'responses/create_response.html'
-    success_url = reverse_lazy('responses:response_list')
+# class ResponseView(CreateView):
+#     form_class = ResponseForm
+#     template_name = 'responses/create_response.html'
+#     success_url = reverse_lazy('responses:response_list')

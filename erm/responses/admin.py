@@ -10,10 +10,7 @@ class CompanyAdmin(admin.ModelAdmin):
         'is_agency',
     )
     search_fields = ('name',)
-    list_filter = (
-        'name',
-        'is_agensy',
-    )
+    list_filter = ('name',)
 
 
 class ContactAdmin(admin.ModelAdmin):
