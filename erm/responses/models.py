@@ -47,6 +47,13 @@ class Contact(models.Model):
         verbose_name='Фамилия',
         help_text='Укажите фамилию контактного лица',
     )
+    role = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name='Должность',
+        help_text='Укажите должность контактного лица',
+    )
     phone = models.CharField(
         max_length=20,
         blank=True,
@@ -55,10 +62,10 @@ class Contact(models.Model):
         help_text='Укажите телефон контактного лица',
     )
     email = models.EmailField(
-        verbose_name='E-mail',
-        help_text='Укажите E-mail контактного лица',
         blank=True,
         null=True,
+        verbose_name='E-mail',
+        help_text='Укажите E-mail контактного лица',
     )
     telegram = models.CharField(
         max_length=100,
@@ -71,11 +78,11 @@ class Contact(models.Model):
         Company,
         blank=True,
         null=True,
+        on_delete=models.SET_NULL,
+        related_name='contacts',
         verbose_name='Компания',
         help_text=('Укажите компанию, которую представляет данное контактное'
                    'лицо'),
-        on_delete=models.SET_NULL,
-        related_name='contacts',
     )
 
     def __str__(self):
@@ -85,22 +92,91 @@ class Contact(models.Model):
 
 
 class Response(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    employers = models.ManyToManyField(Company, related_name='response_employers')
-    position = models.CharField(max_length=100)
-    link = models.URLField(null=True, blank=True)
-    agency = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True, related_name='response_agency')
-    contacts = models.ManyToManyField(Contact, related_name='response_contacts')
-    cv = models.FileField(upload_to='cv/', null=True, blank=True)
-    letter = models.FileField(upload_to='letters/', null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    notes = models.TextField(null=True, blank=True)
-    status = models.CharField(max_length=20)  # You might want to use choices for status
+    """Данные об откликах на те или иные вакансии."""
+    user = models.ForeignKey(
+        User,
+        auto_now_add=True,
+        on_delete=models.CASCADE,
+        related_name='responses',
+        verbose_name='Автор',
+    )
+    employer = models.ForeignKey(
+        Company,
+        on_delete=models.CASCADE,
+        related_name='responses',
+        verbose_name='Работодатель',
+        help_text='Укажите компанию-работодателя',
+    )
+    agency = models.ForeignKey(
+        Company,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name='responses',
+        verbose_name='Агентство',
+        help_text='Укажите компанию - кадровое агентство',
+    )
+    position = models.CharField(
+        max_length=100,
+        verbose_name='Вакансия',
+        help_text='Укажите вакансию',
+    )
+    link = models.URLField(
+        blank=True,
+        null=True,
+        verbose_name='Ссылка',
+        help_text='Укажите ссылку на вакансию',
+    )
+    contacts = models.ManyToManyField(
+        Contact,
+        blank=True,
+        null=True,
+        related_name='responses',
+        verbose_name='Контакты',
+        help_text='Укажите контакты по вакансии',
+    )
+    cv = models.FileField(
+        upload_to='cv/',
+        blank=True,
+        null=True,
+        verbose_name='Резюме',
+        help_text='Приложите файл резюме',
+        )
+    letter = models.TextField(
+        upload_to='covering_letters/',
+        blank=True,
+        null=True,
+        verbose_name='Сопроводительное',
+        help_text='Напишите сопроводительное письмо',
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Создан',
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name='Отредактирован',
+    )
+    notes = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name='Заметки',
+        help_text='Оставьте любые заметки здесь',
+    )
+    STATUS_CHOICES = [
+        ('Pending', 'Pending'),
+        ('Accepted', 'Accepted'),
+        ('Rejected', 'Rejected'),
+    ]
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+    )
 
     def __str__(self):
-        return f'{self.position}, {", ".join([str(employer) for employer in self.employers.all()])}'
-
+        if self.agency:
+            return f'{self.position} в {self.employer} через {self.agency}'
+        return f'{self.position} в {self.employer}'
 
 
 # class JobApplication(models.Model):
