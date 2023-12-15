@@ -1,65 +1,33 @@
 from django.contrib import admin
 
-from .models import (Employer, EmployerContact, JobApplication, Position,
-                     Response, ThirdPartyCompany, ThirdPartyContact)
+from .models import Company, Contact, Response
 
 
-class JobApplicationAdmin(admin.ModelAdmin):
+class CompanyAdmin(admin.ModelAdmin):
     list_display = (
-        'user',
-        'date_applied',
-        'company_name',
-        'resume',
-        'cover_letter',
-    )
-    search_fields = ('company_name',)
-    list_filter = ('date_applied',)
-
-
-class EmployerAdmin(admin.ModelAdmin):
-    list_display = (
-        'pk',
-        'name',
-    )
-
-
-class PositionAdmin(admin.ModelAdmin):
-    list_display = (
-        'pk',
-        'position',
-    )
-
-
-class EmployerContactAdmin(admin.ModelAdmin):
-    list_display = (
-        'pk',
-        'first_name',
-        'last_name',
-        'role',
-        'email',
-        'linkedin',
-        'phone',
-        'company',
-    )
-
-
-class ThirdPartyCompanyAdmin(admin.ModelAdmin):
-    list_display = (
-        'pk',
         'name',
         'website',
+        'is_agency',
+    )
+    search_fields = ('name',)
+    list_filter = (
+        'name',
+        'is_agensy',
     )
 
 
-class ThirdPartyContactAdmin(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     list_display = (
-        'pk',
         'first_name',
         'last_name',
-        'role',
-        'email',
-        'linkedin',
-        'phone',
+        'company',
+    )
+    search_fields = (
+        'last_name',
+        'company',
+    )
+    list_filter = (
+        'last_name',
         'company',
     )
 
@@ -68,19 +36,24 @@ class ResponseAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
         'user',
-        'date',
+        'employer',
+        'agency',
+        'position',
+        'cv',
+        'letter',
+        'created_at',
+        'status',
+    )
+    search_fields = (
         'employer',
         'position',
-        'employercontact',
-        'thirdpartycontact',
-        'status',
+    )
+    list_filter = (
+        'employer',
+        'position',
     )
 
 
-admin.site.register(Employer, EmployerAdmin)
-admin.site.register(Position, PositionAdmin)
-admin.site.register(EmployerContact, EmployerContactAdmin)
-admin.site.register(ThirdPartyCompany, ThirdPartyCompanyAdmin)
-admin.site.register(ThirdPartyContact, ThirdPartyContactAdmin)
+admin.site.register(Company, CompanyAdmin)
+admin.site.register(Contact, ContactAdmin)
 admin.site.register(Response, ResponseAdmin)
-admin.site.register(JobApplication, JobApplicationAdmin)
