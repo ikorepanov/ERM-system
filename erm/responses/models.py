@@ -4,14 +4,13 @@ from django.db import models
 User = get_user_model()
 
 
-class Company(models.Model):
-    """Данные о потенциальном работодателе или кадровом агентстве."""
+class Employer(models.Model):
+    """Данные о потенциальном работодателе."""
     name = models.CharField(
         unique=True,
         max_length=100,
         verbose_name='Компания',
-        help_text=('Укажите название компании-работодателя или кадрового '
-                   'агентства'),
+        help_text='Укажите название компании-работодателя',
     )
     website = models.URLField(
         blank=True,
@@ -19,15 +18,27 @@ class Company(models.Model):
         verbose_name='Сайт',
         help_text='Введите название сайта',
     )
-    is_agency = models.BooleanField(
-        default=False,
-        verbose_name='Агентство',
-        help_text='Отметьте, если компания является кадровым агентством',
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+class Agency(models.Model):
+    """Данные о кадровом агентстве."""
+    name = models.CharField(
+        unique=True,
+        max_length=100,
+        verbose_name='Агенство',
+        help_text='Укажите название кадрового агентства',
+    )
+    website = models.URLField(
+        blank=True,
+        null=True,
+        verbose_name='Сайт',
+        help_text='Введите название сайта',
     )
 
     def __str__(self):
-        if self.is_agency:
-            return f'{self.name} (агентство)'
         return f'{self.name}'
 
 
@@ -75,14 +86,24 @@ class Contact(models.Model):
         help_text='Укажите телеграм контактного лица',
     )
     company = models.ForeignKey(
-        Company,
+        Employer,
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
         related_name='contacts',
         verbose_name='Компания',
-        help_text=('Укажите компанию, которую представляет данное контактное'
+        help_text=('Укажите компанию, которую представляет данное контактное '
                    'лицо'),
+    )
+    agency = models.ForeignKey(
+        Agency,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='contacts',
+        verbose_name='Агентство',
+        help_text=('Укажите кадровое агентство, которое представляет данное '
+                   'контактное лицо'),
     )
 
     def __str__(self):
@@ -101,20 +122,20 @@ class Response(models.Model):
         verbose_name='Автор',
     )
     employer = models.ForeignKey(
-        Company,
+        Employer,
         on_delete=models.CASCADE,
-        related_name='employer_responses',
+        related_name='responses',
         verbose_name='Работодатель',
         help_text='Укажите компанию-работодателя',
     )
     agency = models.ForeignKey(
-        Company,
+        Agency,
         on_delete=models.CASCADE,
         blank=True,
         null=True,
-        related_name='agency_responses',
+        related_name='responses',
         verbose_name='Агентство',
-        help_text='Укажите компанию - кадровое агентство',
+        help_text='Укажите кадровое агентство',
     )
     position = models.CharField(
         max_length=100,
