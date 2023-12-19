@@ -19,6 +19,11 @@ class Employer(models.Model):
         help_text='Введите название сайта',
     )
 
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Работодатель'
+        verbose_name_plural = 'Работодатели'
+
     def __str__(self):
         return f'{self.name}'
 
@@ -28,7 +33,7 @@ class Agency(models.Model):
     name = models.CharField(
         unique=True,
         max_length=100,
-        verbose_name='Агенство',
+        verbose_name='Агентство',
         help_text='Укажите название кадрового агентства',
     )
     website = models.URLField(
@@ -37,6 +42,11 @@ class Agency(models.Model):
         verbose_name='Сайт',
         help_text='Введите название сайта',
     )
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Агентство'
+        verbose_name_plural = 'Агентства'
 
     def __str__(self):
         return f'{self.name}'
@@ -105,6 +115,11 @@ class Contact(models.Model):
         help_text=('Укажите кадровое агентство, которое представляет данное '
                    'контактное лицо'),
     )
+
+    class Meta:
+        ordering = ('last_name',)
+        verbose_name = 'Контакт'
+        verbose_name_plural = 'Контакты'
 
     def __str__(self):
         if self.last_name:
@@ -193,6 +208,11 @@ class Response(models.Model):
         max_length=20,
         choices=STATUS_CHOICES,
     )
+
+    class Meta:
+        ordering = ('-created_at',)
+        verbose_name = 'Отклик'
+        verbose_name_plural = 'Отклики'
 
     def __str__(self):
         if self.agency:
