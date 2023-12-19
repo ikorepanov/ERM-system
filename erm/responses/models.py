@@ -117,7 +117,7 @@ class Contact(models.Model):
     )
 
     class Meta:
-        ordering = ('last_name',)
+        ordering = ('last_name', 'first_name',)
         verbose_name = 'Контакт'
         verbose_name_plural = 'Контакты'
 
@@ -145,7 +145,7 @@ class Response(models.Model):
     )
     agency = models.ForeignKey(
         Agency,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         blank=True,
         null=True,
         related_name='responses',
