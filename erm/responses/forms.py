@@ -1,5 +1,5 @@
-# from django import forms
-# from .models import Response
+from django import forms
+from .models import Response
 
 
 # class JobApplicationForm(forms.ModelForm):
@@ -8,7 +8,7 @@
 #         fields = ['date_applied', 'company_name', 'resume', 'cover_letter']
 
 
-# class ResponseForm(forms.ModelForm):
-#     class Meta:
-#         model = Response
-#         fields = ('user', 'employer', 'position', 'contact')
+class ResponseForm(forms.ModelForm):
+    class Meta:
+        model = Response
+        fields = ('user', 'employer', 'position')

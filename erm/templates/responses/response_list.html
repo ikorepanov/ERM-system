@@ -16,16 +16,36 @@
                   {{ response.user }}
                 </li>
                 <li>
-                  {{ response.date }}
-                </li>
-                <li>
                   {{ response.employer }}
                 </li>
+                {% if response.agency %}
+                  <li>
+                    {{ response.agency }}
+                  </li>
+                {% endif %}
                 <li>
                   {{ response.position }}
                 </li>
                 <li>
-                  {{ response.employercontact }}
+                  {{ response.link }}
+                </li>
+                <li>
+                  {{ response.contacts }}
+                </li>
+                <li>
+                  {{ response.cv }}
+                </li>
+                <li>
+                  {{ response.letter }}
+                </li>
+                <li>
+                  {{ response.created_at }}
+                </li>
+                <li>
+                  {{ response.updated_at }}
+                </li>
+                <li>
+                  {{ response.note }}
                 </li>
                 <a href="{% url 'responses:response_detail' response.pk %}">
                   <button type="button" class="btn btn-primary">Подробнее</button>

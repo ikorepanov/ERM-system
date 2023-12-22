@@ -9,7 +9,7 @@ from .models import Response
 from django.contrib.auth.decorators import login_required
 
 from django.views.generic.edit import CreateView
-# from .forms import ResponseForm
+from .forms import ResponseForm
 
 from django.urls import reverse_lazy
 
@@ -79,11 +79,11 @@ def response_list(request):
     title = 'Мои отклики'
     responses = (Response.objects.prefetch_related('user',
                                                    'employer',
-                                                   'position',
-                                                   'employercontact')
-                                 .all()
+                                                   'agency',
+                                                   'contacts')
+                                 .all())
                                 #  .order_by('-date')[:2])
-                                 .order_by('-date'))
+                                #  .order_by('-date'))
     context = {
         'title': title,
         'responses': responses,
@@ -102,21 +102,16 @@ def response_detail(request, pk):
     return render(request, 'responses/response_detail.html', context)
 
 
-@login_required
-def application_detail(request):
-    pass
+# @login_required
+# def create_response(request):
+#     title = 'Создать отклик'
+#     context = {
+#         'title': title,
+#     }
+#     return render(request, 'responses/create_response.html', context)
 
 
-@login_required
-def create_response(request):
-    title = 'Создать отклик'
-    context = {
-        'title': title,
-    }
-    return render(request, 'responses/create_response.html', context)
-
-
-# class ResponseView(CreateView):
-#     form_class = ResponseForm
-#     template_name = 'responses/create_response.html'
-#     success_url = reverse_lazy('responses:response_list')
+class ResponseView(CreateView):
+    form_class = ResponseForm
+    template_name = 'responses/create_response.html'
+    success_url = reverse_lazy('responses:response_list')
