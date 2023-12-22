@@ -43,7 +43,7 @@ class ResponseAdmin(admin.ModelAdmin):
         'agency',
         'position',
         'cv',
-        'letter',
+        'truncated_letter',
         'created_at',
         'status',
     )

@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.validators import EmailValidator
 from django.db import models
 
 User = get_user_model()
@@ -187,32 +188,31 @@ class Response(models.Model):
     )
     contacts = models.ManyToManyField(
         Contact,
-        # blank=True,
-        # null=True,
+        blank=True,
         related_name='responses',
         verbose_name='Контакты',
         help_text='Укажите контакты по вакансии',
     )
     cv = models.FileField(
-        # upload_to='cv/',
+        upload_to='cv/',
         blank=True,
         null=True,
         verbose_name='Резюме',
         help_text='Приложите файл резюме',
         )
     letter = models.TextField(
-        # upload_to='covering_letters/',
+        default='No',
         blank=True,
         null=True,
         verbose_name='Сопроводительное',
         help_text='Напишите сопроводительное письмо',
     )
     created_at = models.DateTimeField(
-        # auto_now=True,
+        auto_now_add=True,
         verbose_name='Создан',
     )
     updated_at = models.DateTimeField(
-        # auto_now=True,
+        auto_now=True,
         verbose_name='Отредактирован',
     )
     notes = models.TextField(
@@ -221,20 +221,37 @@ class Response(models.Model):
         verbose_name='Заметки',
         help_text='Оставьте любые заметки здесь',
     )
+    OTPRAVLEN = 'OTP'
+    OTKAZ = 'OTK'
+    IGNOR = 'IGN'
+    TESTOVOE = 'TES'
+    INTHR = 'INH'
+    INTTL = 'INT'
+    INBOSS = 'INB'
+    OFFER = 'OFF'
     STATUS_CHOICES = [
-        ('Pending', 'Pending'),
-        ('Accepted', 'Accepted'),
-        ('Rejected', 'Rejected'),
+        (OTPRAVLEN, 'Отклик'),
+        (OTKAZ, 'Отказ'),
+        (IGNOR, 'Игнор'),
+        (TESTOVOE, 'Тестовое'),
+        (INTHR, 'Интервью с HR'),
+        (INTTL, 'Интервью с тимлидом'),
+        (INBOSS, 'Интервью с вампиром'),
+        (OFFER, 'Оффер!'),
     ]
     status = models.CharField(
-        max_length=20,
+        max_length=3,
         choices=STATUS_CHOICES,
+        default=OTPRAVLEN,
     )
 
     class Meta:
         ordering = ('-created_at',)
         verbose_name = 'Отклик'
         verbose_name_plural = 'Отклики'
+
+    def truncated_letter(self):
+        return self.letter[:30]
 
     def __str__(self):
         if self.agency:
