@@ -1,4 +1,14 @@
 {% extends "base.html" %}
+{% block title %}Зарегистрироваться{% endblock %}
+{% block content %}
+  <form method="post" action="{% url 'users:signup' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Зарегистрироваться">
+  </form>
+{% endblock %}
+
+{% comment %} {% extends "base.html" %}
 
 {% block title %}Зарегистрироваться{% endblock %}
 
@@ -61,4 +71,4 @@
       </div>
     </div>
   </div>
-{% endblock %}
+{% endblock %} {% endcomment %}

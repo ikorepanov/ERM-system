@@ -9,7 +9,7 @@ from .models import Response
 from django.contrib.auth.decorators import login_required
 
 from django.views.generic.edit import CreateView
-from .forms import ResponseForm
+from .forms import ResponseForm, EmployerForm
 
 from django.urls import reverse_lazy
 
@@ -115,3 +115,9 @@ class ResponseView(CreateView):
     form_class = ResponseForm
     template_name = 'responses/create_response.html'
     success_url = reverse_lazy('responses:response_list')
+
+
+class EmployerView(CreateView):
+    form_class = EmployerForm
+    template_name = 'responses/create_employer.html'
+    success_url = reverse_lazy('responses:about')
